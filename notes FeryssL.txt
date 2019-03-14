@@ -1,0 +1,5 @@
+idées pour les prévisions :
+	- faire une approximation linéraire etc
+	- faire de l'interpolation -> matrice de Vandermonde
+                                   -> avec des polynomes
+                                   -> avec fourrier
