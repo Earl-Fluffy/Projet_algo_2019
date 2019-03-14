@@ -12,11 +12,13 @@ public class Batiment{
 		this.y=y;
 	}
 	
-	public void fusion(){
+	public void fusion(Batiment b1, Batiment b2){
 		
 	}
 	
-	public void deplacer(){
+	public void deplacer(int newx, int newy){
+		x=newx;
+		y=newy;
 	}
 	
 	public double genereArgent(){
@@ -24,7 +26,7 @@ public class Batiment{
 	}
 	
 	public String toString(){
-		return ("Construction d'un bâtiment de type de niveau " + niveau + " de coefficient " + coef + " à la position ?") ;
+		return ("Construction d'un bâtiment de niveau " + niveau + " de coefficient " + coef + " à la position (" + x + "," + y + ")") ;
 	}
 }
 

@@ -5,6 +5,9 @@ public class Resto extends Batiment {
 		coef = 0.1;		
 	}
 	
+	public String toString(){
+		return " : Restaurant ";
+	}
 	
 	
 }
