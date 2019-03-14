@@ -13,3 +13,4 @@ idées pour les prévisions :
 graphique circulaire : https://www.saloninnovationsinc.com/b4QQVW4x/
                        https://www.scriptol.fr/html5/canvas/cercle.php
 
+date/calendrier : https://www.jmdoudoux.fr/java/dej/chap-utilisation_dates.htm
