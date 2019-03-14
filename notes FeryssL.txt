@@ -1,5 +1,15 @@
 idées pour les prévisions :
-	- faire une approximation linéraire etc
+	- faire une approximation linéraire etc (http://www.lescoursdevente.fr/boite/prevision%20et%20variation.htm)
 	- faire de l'interpolation -> matrice de Vandermonde
-                                   -> avec des polynomes
+                                   -> avec des polynomes (méthode des moindres carrés)
                                    -> avec fourrier
+	- tenir compte des variations saisonières ?
+	- lissage exponetielle
+	- CALCULER DES ERREURS !
+	- regression linéaire (https://fr.slideshare.net/green0mystere/calcul-des-prvisions) slide 16-24
+
+
+
+graphique circulaire : https://www.saloninnovationsinc.com/b4QQVW4x/
+                       https://www.scriptol.fr/html5/canvas/cercle.php
+
