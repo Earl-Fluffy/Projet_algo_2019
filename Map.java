@@ -6,7 +6,7 @@ public class Map implements ActionListener{
 	public ArrayList<Batiment> listBat;
 	public Timer time;
 	public int argent;
-	public [][]boolean positions;
+	public boolean[][] positions;
 	
 	public Map() {
 		listBat= new ArrayList<Batiment>();
@@ -15,14 +15,14 @@ public class Map implements ActionListener{
 	}
 	
 	public boolean testPresence(Batiment bat){
-		for (int i=0; i<ajout.x.length){
-			for(int j=0;j<ajout.y.length){
-				if (positions[j][i]==true){
-					possible=false;
-					break;
+		for (int i=0; i<bat.x.length;i++){
+			for(int j=0;j<bat.y.length;j++){
+				if (positions[j][i]){
+					return false;
 				}
 			}
 		}
+		return true;
 	}
 	
 	public boolean ajoutBat(Batiment ajout){
