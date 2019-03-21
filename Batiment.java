@@ -1,6 +1,6 @@
 import java.util.LinkedList; 
 
-public class Batiment{
+public abstract class  Batiment{
 	double coef;
 	LinkedList <Depenses> liste = new LinkedList();
 	int niveau;
@@ -9,7 +9,16 @@ public class Batiment{
 	String image;
 	
 	public Batiment (int x, int y){
-		switch (niveau){
+		this.x[0]=x;
+		this.y[0]=y;
+	}
+	
+	public void fusion(Batiment b){
+		if (this.image == b.image & this.niveau <=3){
+			b.image = "0";
+			this.liste.addAll(b.liste);
+			this.niveau ++;
+			switch (niveau){
 			case 1:
 			this.x= new int[1];
 			this.y=new int [1];
@@ -23,20 +32,14 @@ public class Batiment{
 			this.y=new int [2];
 			break;
 		}
-		this.x[0]=x;
-		this.y[0]=y;
-	}
-	
-	public void fusion(Batiment b1, Batiment b2){
-		if (b1.image == b2.image & b1.niveau <=3){
-			b2.x[0]=b1.x[0];
-			b2.y[0]=b1.x[0];
-			niveau ++;
-			coef +=0.1;
+			this.coef +=0.1;
+			this.attribuerIm();
 		} else {
 			System.out.println("Impossible à fusionner");
 		}
 	}
+	
+	public abstract void attribuerIm();	
 	
 	public void deplacer(int newx, int newy){
 		x[0]=newx;
