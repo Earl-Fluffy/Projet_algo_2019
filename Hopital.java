@@ -6,7 +6,6 @@ public Hopital (int x, int y){
 		switch (niveau){
 			case 1:
 			image = "\"media\"Hopital n1";	
-			coef = 0.2;
 			break;
 			case 2:
 			image = "\"media\"hopital n2";

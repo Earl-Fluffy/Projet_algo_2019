@@ -32,6 +32,7 @@ public class Batiment{
 			b2.x[0]=b1.x[0];
 			b2.y[0]=b1.x[0];
 			niveau ++;
+			coef +=0.1;
 		} else {
 			System.out.println("Impossible à fusionner");
 		}

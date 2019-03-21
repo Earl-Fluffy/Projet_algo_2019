@@ -5,14 +5,13 @@ public class Resto extends Batiment {
 		coef = 0.1;
 		switch (niveau){
 			case 1:
-			image = "\"media"+"\resto n1";	
-			coef = 0.2;
+			image = "\"media\"resto n1";	
 			break;
 			case 2:
-			image = 
+			image = "\"media\"resto n2";
 			break;
 			case 3:
-			image =
+			image ="\"media\"resto n3";
 			break;
 		}
 			
