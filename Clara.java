@@ -1,4 +1,7 @@
+package no.geosoft.cc.math.calculus;
+
 import java.util.Date;
+import Jama.Matrix;
 public class Clara {
 	double[][] matV;
 	
@@ -10,4 +13,5 @@ public class Clara {
 		}
 	}
 	// COMMENT INVERSER MATRICE ??
+	
 }

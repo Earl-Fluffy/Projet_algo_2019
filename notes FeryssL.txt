@@ -1,3 +1,5 @@
+14 mars 2019
+
 idées pour les prévisions :
 	- faire une approximation linéraire etc (http://www.lescoursdevente.fr/boite/prevision%20et%20variation.htm)
 	- faire de l'interpolation -> matrice de Vandermonde
@@ -14,3 +16,9 @@ graphique circulaire : https://www.saloninnovationsinc.com/b4QQVW4x/
                        https://www.scriptol.fr/html5/canvas/cercle.php
 
 date/calendrier : https://www.jmdoudoux.fr/java/dej/chap-utilisation_dates.htm
+
+21 mars 2019
+
+interpolation newton
+http://home.apache.org/~luc/commons-math-3.6-RC2-site/jacoco/org.apache.commons.math3.analysis.polynomials/PolynomialFunctionNewtonForm.java.html
+
