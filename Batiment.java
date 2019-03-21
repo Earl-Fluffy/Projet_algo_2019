@@ -28,9 +28,10 @@ public class Batiment{
 	}
 	
 	public void fusion(Batiment b1, Batiment b2){
-		if (b1.image == b2.image){
+		if (b1.image == b2.image & b1.niveau <=3){
 			b2.x[0]=b1.x[0];
 			b2.y[0]=b1.x[0];
+			niveau ++;
 		} else {
 			System.out.println("Impossible à fusionner");
 		}
