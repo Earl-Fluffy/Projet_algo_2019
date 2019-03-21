@@ -2,11 +2,13 @@ import javax.swing.*;
 
 public class Fenetre extends JFrame {
     PLoading pLoad;
+    PCity pCity;
     public Fenetre(){
         pLoad= new PLoading();
-        this.setSize(800,800);
+        pCity= new PCity();
+        this.setSize(800,700);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.setContentPane(pLoad);
+        this.setContentPane(pCity);
         this.setVisible(true);
     }
 
