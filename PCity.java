@@ -25,13 +25,19 @@ public class PCity extends JPanel{
 		
 		PanelImage cityBack = new PanelImage("media/CityBackground.jpg");
 		this.add(cityBack,BorderLayout.CENTER);
+
+		JPanel infoArgent = new JPanel();
+		infoArgent.setLayout(null);
+		infoArgent.setBackground(Color.blue);
+		infoArgent.setPreferredSize(new Dimension(800,30));
+		this.add(infoArgent,BorderLayout.NORTH);
 	}
 	
 	public class PanelImage extends JPanel{
 		private Image img=null;
 		PanelImage(String pathname){
 			try{
-				img = ImageIO.read(new File(pathname));
+				img = ImageIO.read(new File(TestMain.class.getResource(pathname).getPath()));
 			} catch (IOException e){
 				e.printStackTrace();
 			}
