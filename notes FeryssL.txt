@@ -27,3 +27,13 @@ https://geosoft.no/software/lagrange/LagrangeInterpolation.java.html
 
 JAMA -> https://math.nist.gov/javanumerics/jama/
 package -> https://www.geeksforgeeks.org/packages-in-java/
+
+•~•~•~•~•~•~•~•~•  28 mars 2019  •~•~•~•~•~•~•~•~• 
+
+interpolation lagrange ok
+matrice ok
+
+DrawListener.java -> https://introcs.cs.princeton.edu/java/36inheritance/DrawListener.java.html
+LeastSquares.java -> https://introcs.cs.princeton.edu/java/36inheritance/LeastSquares.java.html
+Draw.java -> https://introcs.cs.princeton.edu/java/stdlib/Draw.java.html
+StdDraw.java -> https://introcs.cs.princeton.edu/java/stdlib/StdDraw.java.html
