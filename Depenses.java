@@ -24,6 +24,13 @@ public class Depenses {
 		return num;
 	}
 	
+	public double getAmount(){
+		return this.montant;
+	}
+	
+	public int getDate(){
+		return this.date;
+	}
 	
 	public String toString(){
 		return "Nouvelle dépense d'un montant de " + montant + " de type " + type + " : " + description;

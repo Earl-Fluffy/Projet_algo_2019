@@ -1,8 +1,8 @@
-import java.util.LinkedList; 
+import java.util.ArrayList; 
 
 public abstract class  Batiment{
 	double coef;
-	LinkedList <Depenses> liste = new LinkedList();
+	ArrayList <Depenses> liste = new ArrayList();
 	int niveau;
 	int []x;
 	int []y;

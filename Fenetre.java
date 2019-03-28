@@ -1,4 +1,5 @@
 import javax.swing.*;
+import java.util.*;
 
 public class Fenetre extends JFrame {
     PLoading pLoad;
@@ -14,5 +15,6 @@ public class Fenetre extends JFrame {
         this.setVisible(true);
         this.setResizable(false);
     }
+    
 
 }
