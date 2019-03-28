@@ -37,3 +37,5 @@ DrawListener.java -> https://introcs.cs.princeton.edu/java/36inheritance/DrawLis
 LeastSquares.java -> https://introcs.cs.princeton.edu/java/36inheritance/LeastSquares.java.html
 Draw.java -> https://introcs.cs.princeton.edu/java/stdlib/Draw.java.html
 StdDraw.java -> https://introcs.cs.princeton.edu/java/stdlib/StdDraw.java.html
+
+avec transformée de fourrier : https://antoinevastel.com/algorithme/s%C3%A9ries%20temporelles/2016/06/05/prediction-fourier.html
