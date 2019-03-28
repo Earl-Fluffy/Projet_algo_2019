@@ -3,13 +3,15 @@ import java.awt.*;
 import java.io.File;
 import java.io.IOException;
 import javax.imageio.ImageIO;
+import java.awt.event.*;
 
 
 
-public class PCity extends JPanel{
+public class PCity extends JPanel implements ActionListener{
 	private BorderLayout g1 = new BorderLayout();
 	public Bouton bNouvelleEntree=new Bouton("","media/NouvelleEntree.gif");
 	public Bouton bStats= new Bouton("","media/Stats.gif");
+	public JButton close = new JButton ("Fermer");
 	
 	PCity(){
 		this.setLayout(g1);
@@ -31,7 +33,17 @@ public class PCity extends JPanel{
 		infoArgent.setBackground(Color.blue);
 		infoArgent.setPreferredSize(new Dimension(800,30));
 		this.add(infoArgent,BorderLayout.NORTH);
+		close.setBounds (700,0,50,50);
+		close.setBackground(Color.red);
+		this.add(close);
+		close.addActionListener(this);
 	}
+	
+	public void actionPerformed (ActionEvent e){
+	//Sauvegarder tous les bâtiments en texte et la date de la fermeture
+	//this.dispose(); // tout fermer
+	}
+	
 	
 	public class PanelImage extends JPanel{
 		private Image img=null;
