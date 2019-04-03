@@ -9,7 +9,7 @@ public class Fenetre extends JFrame {
         pCity= new PCity();
         pEntree= new PEntree();
         this.setSize(800,700);
-        this.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setContentPane(pEntree);
         this.setVisible(true);
         this.setResizable(false);
