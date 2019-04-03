@@ -4,6 +4,10 @@ import java.io.File;
 import java.io.IOException;
 import javax.imageio.ImageIO;
 import java.awt.event.*;
+import java.util.*;
+import java.io.PrintWriter;
+import java.io.FileWriter;
+
 
 
 
@@ -12,6 +16,7 @@ public class PCity extends JPanel implements ActionListener{
 	public Bouton bNouvelleEntree=new Bouton("","media/NouvelleEntree.gif");
 	public Bouton bStats= new Bouton("","media/Stats.gif");
 	public JButton close = new JButton ("Fermer");
+	public LinkedList <Batiment> buildings;
 	
 	PCity(){
 		this.setLayout(g1);
@@ -37,13 +42,27 @@ public class PCity extends JPanel implements ActionListener{
 		close.setBackground(Color.red);
 		this.add(close);
 		close.addActionListener(this);
+		
 	}
 	
 	public void actionPerformed (ActionEvent e){
-	//Sauvegarder tous les bâtiments en texte et la date de la fermeture
-	//this.dispose(); // tout fermer
+	/*var fileSystem=new ActiveXObject("Scripting.FileSystemObject");
+	//fileSystem.CreateTextFile("monFichier.txt",true);
+	var monfichier=fileSystem.OpenTextFile("monFichier.txt", 2 ,true); 
+	//Sauvegarder tous les bâtiments en texte et la date de la fermeture: https://www.tutorielsenfolie.com/tutoriels-92-Lire-et-ecrire-dans-un-fichier-en-JavaScript.html
+	monFichier.close();*/
+	/*File fichier = new File("c:\\fichier.txt") ; 
+PrintWriter out = new PrintWriter(new FileWriter(fichier)) ; 
+out.write("Bonjour") ; //écris bonjour dans le fichier 
+out.println() ; //fais un retour à la ligne dans le fichier 
+out.write("Comment allez vous") ; //écris dans le fichier 
+out.close() ; */
+	System.exit(0);//this.dispose(); // tout fermer
 	}
 	
+	public void saveBatiment(Batiment b){
+		buildings.add(b);
+	}
 	
 	public class PanelImage extends JPanel{
 		private Image img=null;
