@@ -6,8 +6,8 @@ import javax.swing.JPanel;
 public class Courbe extends JPanel{ 
 
 	ArrayList<Depenses> dep = new ArrayList<Depenses>();
-	double[] tmp;
-	double[] mont;
+	double[] tmp= new double[dep.size()];
+	double[] mont= new double[dep.size()];
 	double[] polynomes;
 	double[] coorLeastSaquares;
 	
