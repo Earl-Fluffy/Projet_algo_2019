@@ -31,7 +31,7 @@ public class Map implements ActionListener{
 	public void save (){
 	 String save = " ";
 	  for (Batiment b : listBat){
-		  save+= String.valueOf(b.x)+String.valueOf(b.y)+b.image+"\n";
+		  save+= String.valueOf(b.x)+String.valueOf(b.y)+b.toString() + "\n";
 	  }
 	   
 	  try {

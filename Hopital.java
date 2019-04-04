@@ -3,7 +3,10 @@ public class Hopital extends Batiment{
 public Hopital (int x, int y){
 		super (x,y);
 		coef = 0.1;	
-		switch (niveau){
+	}
+		
+		public void attribuerIm(){
+			switch (niveau){
 			case 1:
 			image = "\"media\"Hopital n1";	
 			break;
@@ -14,7 +17,6 @@ public Hopital (int x, int y){
 			image ="\"media\"hopital n3";
 			break;
 		}
-			
 		
 	}
 	
