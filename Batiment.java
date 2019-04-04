@@ -4,11 +4,13 @@ public abstract class  Batiment{
 	double coef;
 	ArrayList <Depenses> liste = new ArrayList();
 	int niveau;
-	int []x;
-	int []y;
+	int[] x;
+	int[] y;
 	String image;
 	
 	public Batiment (int x, int y){
+		this.x= new int[1];
+		this.y=new int[1];
 		this.x[0]=x;
 		this.y[0]=y;
 	}

@@ -5,8 +5,7 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 import java.awt.event.*;
 import java.util.*;
-import java.io.PrintWriter;
-import java.io.FileWriter;
+import java.io.*;
 
 
 
@@ -16,7 +15,7 @@ public class PCity extends JPanel implements ActionListener{
 	public Bouton bNouvelleEntree=new Bouton("","media/NouvelleEntree.gif");
 	public Bouton bStats= new Bouton("","media/Stats.gif");
 	public JButton close = new JButton ("Fermer");
-	public LinkedList <Batiment> buildings;
+	public Map myMap= new Map();
 	
 	PCity(){
 		this.setLayout(g1);
@@ -38,31 +37,41 @@ public class PCity extends JPanel implements ActionListener{
 		infoArgent.setBackground(Color.blue);
 		infoArgent.setPreferredSize(new Dimension(800,30));
 		this.add(infoArgent,BorderLayout.NORTH);
-		close.setBounds (700,0,50,50);
+		close.setBounds (700,0,100,30);
 		close.setBackground(Color.red);
-		this.add(close);
+		infoArgent.add(close);
 		close.addActionListener(this);
 		
 	}
 	
 	public void actionPerformed (ActionEvent e){
-	/*var fileSystem=new ActiveXObject("Scripting.FileSystemObject");
-	//fileSystem.CreateTextFile("monFichier.txt",true);
-	var monfichier=fileSystem.OpenTextFile("monFichier.txt", 2 ,true); 
-	//Sauvegarder tous les bâtiments en texte et la date de la fermeture: https://www.tutorielsenfolie.com/tutoriels-92-Lire-et-ecrire-dans-un-fichier-en-JavaScript.html
-	monFichier.close();*/
-	/*File fichier = new File("c:\\fichier.txt") ; 
-PrintWriter out = new PrintWriter(new FileWriter(fichier)) ; 
-out.write("Bonjour") ; //écris bonjour dans le fichier 
-out.println() ; //fais un retour à la ligne dans le fichier 
-out.write("Comment allez vous") ; //écris dans le fichier 
-out.close() ; */
-	System.exit(0);//this.dispose(); // tout fermer
+		myMap.save();
+	System.exit(0);
 	}
 	
-	public void saveBatiment(Batiment b){
-		buildings.add(b);
-	}
+	 public static void usingBufferedWritter(String fileContent) throws IOException
+    {
+
+
+        BufferedWriter writer = new BufferedWriter(new FileWriter(TestMain.class.getResource("media/tDoc.txt").getPath()));
+        // !!!!!! Ne pas toucher sinon mort potentielle du PC
+        writer.write(fileContent);
+        writer.close();
+    }
+
+    public static void appendFile(String fileContent) throws IOException
+    {
+        String thisLine;
+        String res="";
+        BufferedReader tBuff = new BufferedReader(new FileReader(TestMain.class.getResource("media/tDoc.txt").getPath()));
+        while ((thisLine = tBuff.readLine()) != null) {
+            res +="\n"+ thisLine;
+        }
+        tBuff.close();
+        usingBufferedWritter(res + "\n" + fileContent);
+    }
+	
+	
 	
 	public class PanelImage extends JPanel{
 		private Image img=null;
