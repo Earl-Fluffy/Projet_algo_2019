@@ -3,7 +3,7 @@ import java.awt.Graphics;
 import java.util.*;
 import javax.swing.JPanel;
 
-public class Courbe {   //implements JPanel ??
+public class Courbe extends JPanel{ 
 
 	ArrayList<Depenses> dep = new ArrayList<Depenses>();
 	double[] tmp;
@@ -58,6 +58,13 @@ public class Courbe {   //implements JPanel ??
 		g.drawLine(0, b, 1, a + b);
 	}
 		
+	public void paintComponent (Graphics g){
+		tracerPoint(g);
+		tracerCourbe(g);
+		tracerCourbeLagrange(g);
+		tracerCourbeLeastSquares(g);
+	}
+	
 	
 }
 		
