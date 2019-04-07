@@ -31,6 +31,15 @@ public class Depenses {
 		return this.date;
 	}
 	
+	public int compareTo(Depenses autreDepense){
+		int s=0;
+		if (date < autreDepense.date)
+			s=-1;
+		else if (date > autreDepense.date)
+			s =1;
+		return s;
+	}
+	
 	public String toString(){
 		return "Nouvelle dépense d'un montant de " + montant + " de type " + type + " : " + description;
 	}

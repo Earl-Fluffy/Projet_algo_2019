@@ -1,3 +1,4 @@
+import java.util.LinkedList;
 import java.util.ArrayList;
 import javax.swing.Timer;
 import java.awt.event.*;
@@ -8,7 +9,7 @@ public class Map implements ActionListener{
 	public Timer time;
 	public int argent;
 	public boolean[][] positions;
-	public ArrayList<Depenses> sommeDepenses;
+	public LinkedList<Depenses> sommeDepenses;
 	Hopital h = new Hopital (50,50);
 	
 	public Map() {
@@ -18,20 +19,27 @@ public class Map implements ActionListener{
 		listBat.add(h);
 	}
 	
-	public ArrayList<Depenses> sommer (){
-		ArrayList <Depenses> sum = new ArrayList <Depenses>();
+	public LinkedList<Depenses> sommer (){
+		LinkedList <Depenses> sum = new LinkedList <Depenses>();
 		for (Batiment b :listBat){
-			for (Depenses d : b.liste){
+			for (Depenses d: b.liste){
+				int i= d.compareTo(sum.get(sum.size()-1));
+				if (i==-1)
+				sum.add(sum.size()-2,d);
+				else if (i==1)
 				sum.add(d);
+				else if (i==0)
+				sum.get(sum.size()-1).montant+= d.montant;
 			}
 		}
+		//trier par date. PB: faut parcourir toute la liste sum?
 		return sum;
 	}
 	
 	public void save (){
 	 String save = " ";
 	  for (Batiment b : listBat){
-		  save+= String.valueOf(b.x)+String.valueOf(b.y)+b.toString() + "\n";
+		  save+= "Position : " + Integer.toString(b.x[0])+ ", " + Integer.toString(b.y[0])+ ". Niveau "+ Integer.toString(b.niveau)+ b.toString() + "\n";
 	  }
 	   
 	  try {
