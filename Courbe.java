@@ -40,7 +40,7 @@ public class Courbe extends JPanel{
 		g.setColor(Color.red);
 		for(int i=0; i<dep.size();i++){
 			
-			g.fillOval((int)tmp[i]-5, (int)mont[i]-5, 10, 10);
+			g.fillOval((int)tmp[i]-5, this.getHeight()-(int)mont[i]-5, 10, 10);
 		}
 	}
 	
@@ -48,7 +48,7 @@ public class Courbe extends JPanel{
 		g.setColor(Color.black);
 		for(int i=0; i<tmp.length-1;i++){
 			
-			g.drawLine((int)tmp[i], (int)mont[i], (int)tmp[i+1], (int)mont[i+1]);
+			g.drawLine((int)tmp[i], this.getHeight()-(int)mont[i], (int)tmp[i+1], this.getHeight()-(int)mont[i+1]);
 		}
 	}
 	
@@ -61,7 +61,7 @@ public class Courbe extends JPanel{
 				y1=y1+(Math.pow(i,j))*(polynomes[j]);
 				y2=y2+(Math.pow((i+1),j))*(polynomes[j]);
 			}
-			g.drawLine(i, (int)y1, i+1, (int)y2);
+			g.drawLine(i, this.getHeight()-(int)y1, i+1, this.getHeight()-(int)y2);
 			y1=0;
 			y2=0;
 		}
@@ -71,7 +71,7 @@ public class Courbe extends JPanel{
 		double a=coorLeastSaquares[0];
 		int b=(int)coorLeastSaquares[1];
 		g.setColor(Color.green);
-		g.drawLine(0, b, this.getWidth(), (int)(a*this.getWidth()) + b);
+		g.drawLine(0, this.getHeight()-b, this.getWidth(), this.getHeight()-((int)(a*this.getWidth()) + b));
 	}
 		
 	public void paintComponent (Graphics g){
