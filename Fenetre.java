@@ -27,6 +27,7 @@ public class Fenetre extends JFrame implements ActionListener{
         
         pEntree.annuler.addActionListener(this);
         pCity.bNouvelleEntree.addActionListener(this);
+        pCity.bStats.addActionListener(this);
         
         
         Depenses testDepense = new Depenses(5.5, "Test","Je fais un test",2019,05,12);
@@ -38,7 +39,9 @@ public class Fenetre extends JFrame implements ActionListener{
         listTest.add(testDepense3);
         pCourbe=new Courbe(listTest);
         cards.add(pCourbe,listContent[4]);
-        c1.show(cards,listContent[4]);
+        
+        
+        
         
         
         this.setVisible(true);
@@ -49,7 +52,11 @@ public class Fenetre extends JFrame implements ActionListener{
 			c1.show(cards,listContent[0]);
 		} else if (e.getSource()==pCity.bNouvelleEntree){
 			c1.show(cards,listContent[1]);
+		} else if (e.getSource()==pCity.bStats){
+			c1.show(cards,listContent[4]);
 		}
+		
+		
 
     }
     

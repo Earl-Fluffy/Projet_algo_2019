@@ -30,6 +30,7 @@ public class PCity extends JPanel implements ActionListener{
 		this.add(commande, BorderLayout.SOUTH);
 		
 		PanelImage cityBack = new PanelImage("media/CityBackground.jpg");
+		cityBack.setLayout(new GridLayout(10,10));
 		this.add(cityBack,BorderLayout.CENTER);
 
 		JPanel infoArgent = new JPanel();
