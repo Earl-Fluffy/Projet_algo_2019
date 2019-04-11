@@ -120,12 +120,37 @@ public class Map implements ActionListener{
 		Batiment newBat = new Hopital (0,0);
 		int i=0;
 		while (i<infoBat.length){
-			newBat = new Hopital (Integer.parseInt(infoBat[i][0]), Integer.parseInt(infoBat[i][1]));
+			switch (infoBat[i][3]){
+				case " : Hopital ":
+				newBat = new Hopital (Integer.parseInt(infoBat[i][0]), Integer.parseInt(infoBat[i][1]));
+				break;
+				case " : Resto ":
+				newBat = new Resto (Integer.parseInt(infoBat[i][0]), Integer.parseInt(infoBat[i][1]));
+				break;
+				case " : Maison " :
+				newBat = new Maison (Integer.parseInt(infoBat[i][0]), Integer.parseInt(infoBat[i][1]));
+				break;
+				case " : Parc ":
+				newBat = new Parc (Integer.parseInt(infoBat[i][0]), Integer.parseInt(infoBat[i][1]));
+				break;
+				case " : Mall ":
+				newBat = new Mall (Integer.parseInt(infoBat[i][0]), Integer.parseInt(infoBat[i][1]));
+				break;
+				case " : Banque ":
+				newBat = new Banque (Integer.parseInt(infoBat[i][0]), Integer.parseInt(infoBat[i][1]));
+				break;
+				case " : Gare ":
+				newBat = new Gare (Integer.parseInt(infoBat[i][0]), Integer.parseInt(infoBat[i][1]));
+				break;
+				case " : Cinema ":
+				newBat = new Cinema (Integer.parseInt(infoBat[i][0]), Integer.parseInt(infoBat[i][1]));
+				break;
+			}
 			newBat.niveau = Integer.parseInt(infoBat[i][2]);
 			i++;
 		}
 		reconstruction.add(newBat);
 		return reconstruction;
-		//pb catégorie
+		
 	}
 }

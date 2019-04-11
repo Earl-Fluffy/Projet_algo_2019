@@ -5,5 +5,23 @@ public class Cinema extends Batiment{
 		coef = 0.1;		
 	}
 	
+	public void attribuerIm(){
+		switch (niveau){
+			case 1:
+			image = "\"media\"cinema n1";	
+			break;
+			case 2:
+			image = "\"media\"cinema n2";
+			break;
+			case 3:
+			image ="\"media\"cinema n3";
+			break;
+		}
+	}
+	
+	public String toString(){
+		return " : Cinema ";
+	}
+	
 }
 
