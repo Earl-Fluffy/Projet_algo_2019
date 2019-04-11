@@ -13,11 +13,16 @@ public class Map implements ActionListener{
 	public LinkedList<Depenses> sommeDepenses;
 	Hopital h = new Hopital (50,50);
 	
-	public Map() {
+	public Map(String[][] batACreer) {
 		listBat= new ArrayList<Batiment>();
+		listBat.addAll(creerBat(batACreer));
 		time=new Timer (30000,this);
 		positions = new boolean[6][12];
 		listBat.add(h);
+
+		for(int i=0;i<listBat.size();i++) {
+			System.out.println(listBat.get(i));
+		}
 	}
 	
 	public LinkedList<Depenses> sommer (){
@@ -34,7 +39,7 @@ public class Map implements ActionListener{
 	public void save (){
 	 String save = " ";
 	  for (Batiment b : listBat){
-		  save+= Integer.toString(b.x[0])+ "; " + Integer.toString(b.y[0])+ Integer.toString(b.niveau)+ ";" + b.toString() + "\n";
+		  save+= Integer.toString(b.x[0])+ "; " + Integer.toString(b.y[0])+";"+ Integer.toString(b.niveau)+ ";" + b.toString() + "\n";
 	  }
 	   
 	  try {
@@ -118,38 +123,40 @@ public class Map implements ActionListener{
 	public ArrayList<Batiment> creerBat (String [][] infoBat){
 		ArrayList<Batiment> reconstruction = new ArrayList <Batiment> ();
 		Batiment newBat = new Hopital (0,0);
-		int i=0;
-		while (i<infoBat.length){
-			switch (infoBat[i][3]){
-				case " : Hopital ":
+		for (int i=0;i<infoBat.length;i++){
+			switch (Integer.parseInt(infoBat[i][3])){
+				case 1:
 				newBat = new Hopital (Integer.parseInt(infoBat[i][0]), Integer.parseInt(infoBat[i][1]));
 				break;
-				case " : Resto ":
+				case 2:
 				newBat = new Resto (Integer.parseInt(infoBat[i][0]), Integer.parseInt(infoBat[i][1]));
 				break;
-				case " : Maison " :
+				case 3 :
 				newBat = new Maison (Integer.parseInt(infoBat[i][0]), Integer.parseInt(infoBat[i][1]));
 				break;
-				case " : Parc ":
+				case 4:
 				newBat = new Parc (Integer.parseInt(infoBat[i][0]), Integer.parseInt(infoBat[i][1]));
 				break;
-				case " : Mall ":
+				case 5:
 				newBat = new Mall (Integer.parseInt(infoBat[i][0]), Integer.parseInt(infoBat[i][1]));
 				break;
-				case " : Banque ":
+				case 6:
 				newBat = new Banque (Integer.parseInt(infoBat[i][0]), Integer.parseInt(infoBat[i][1]));
 				break;
-				case " : Gare ":
+				case 7:
 				newBat = new Gare (Integer.parseInt(infoBat[i][0]), Integer.parseInt(infoBat[i][1]));
 				break;
-				case " : Cinema ":
-				newBat = new Cinema (Integer.parseInt(infoBat[i][0]), Integer.parseInt(infoBat[i][1]));
+				case 8:
+					newBat = new Cinema (Integer.parseInt(infoBat[i][0]), Integer.parseInt(infoBat[i][1]));
 				break;
+				default:
+					System.out.println("batiment non reconnu");
+					break;
 			}
 			newBat.niveau = Integer.parseInt(infoBat[i][2]);
-			i++;
+			reconstruction.add(newBat);
 		}
-		reconstruction.add(newBat);
+
 		return reconstruction;
 		
 	}

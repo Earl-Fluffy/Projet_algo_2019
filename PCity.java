@@ -4,10 +4,6 @@ import java.io.File;
 import java.io.IOException;
 import javax.imageio.ImageIO;
 import java.awt.event.*;
-import java.util.*;
-import java.awt.GridLayout; 
-import java.io.*;
-
 
 
 
@@ -16,11 +12,14 @@ public class PCity extends JPanel implements ActionListener{
 	public Bouton bNouvelleEntree=new Bouton("","media/NouvelleEntree.gif");
 	public Bouton bStats= new Bouton("","media/Stats.gif");
 	public JButton close = new JButton ("Fermer");
-	public Map myMap= new Map();
+	public Map myMap;
+	JPanel commande =new JPanel();
 	
-	PCity(){
+	PCity(String[][] batACreer){
+		myMap = new Map(batACreer);
+
 		this.setLayout(g1);
-		JPanel commande = new JPanel();
+
 		commande.setLayout(null);
 		commande.setBackground(Color.blue);
 		commande.setPreferredSize(new Dimension(800,100));
@@ -31,18 +30,15 @@ public class PCity extends JPanel implements ActionListener{
 		this.add(commande, BorderLayout.SOUTH);
 		
 		PanelImage cityBack = new PanelImage("media/CityBackground.jpg");
-		GridLayout g1 = new GridLayout();
-		g1.setColumns(10);
-		g1.setRows(10);
-		cityBack.setLayout(g1);
+		cityBack.setLayout(null);
 		
 		PanelImage pImageTest = new PanelImage("media/money.jpg");
+		pImageTest.setBounds(60+4*58,3+2*58,58,58);
 		PanelImage pImageTest2 = new PanelImage("media/bankn3.png");
+		pImageTest2.setBounds(60+6*58,3+5*58,58,58);
 		cityBack.add(pImageTest);
 		cityBack.add(pImageTest2);
-		for (int i=0;i<98;i++){
-			cityBack.add(Box.createGlue());
-		}
+
 		
 		this.add(cityBack,BorderLayout.CENTER);
 

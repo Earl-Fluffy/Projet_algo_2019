@@ -1,5 +1,2 @@
-
- 
-this is added
- position :50, 50. Niveau 0 : Hopital 
-this is added
+50;50;0;3
+40;40;1;6

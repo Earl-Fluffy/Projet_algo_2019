@@ -19,7 +19,7 @@ public class Mall extends Batiment{
 	}
 	
 	public String toString(){
-		return " : Mall ";
+		return "5";
 	}
 }
 

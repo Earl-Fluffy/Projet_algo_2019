@@ -21,7 +21,7 @@ public class Resto extends Batiment {
 	}
 	
 	public String toString(){
-		return " : Restaurant ";
+		return "2";
 	}
 	
 	
