@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class Depenses {
+public class Depenses implements Comparable <Depenses>{
 	double montant;
 	String type;
 	String description;

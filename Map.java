@@ -3,6 +3,7 @@ import java.util.ArrayList;
 import javax.swing.Timer;
 import java.awt.event.*;
 import java.io.*;
+import java.util.Collections;
 
 public class Map implements ActionListener{
 	public ArrayList<Batiment> listBat;
@@ -23,16 +24,10 @@ public class Map implements ActionListener{
 		LinkedList <Depenses> sum = new LinkedList <Depenses>();
 		for (Batiment b :listBat){
 			for (Depenses d: b.liste){
-				int i= d.compareTo(sum.get(sum.size()-1));
-				if (i==-1)
-				sum.add(sum.size()-2,d);
-				else if (i==1)
 				sum.add(d);
-				else if (i==0)
-				sum.get(sum.size()-1).montant+= d.montant;
 			}
 		}
-		//trier par date. PB: faut parcourir toute la liste sum?
+		Collections.sort(sum);
 		return sum;
 	}
 	
