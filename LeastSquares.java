@@ -20,7 +20,6 @@ public class LeastSquares {
     double[] x;
     double[] y;
 
-    private Draw draw = new Draw();
 
     public LeastSquares(double [] xx, double [] yy) {
         this.x=xx;
@@ -44,7 +43,8 @@ public class LeastSquares {
         // draw the least squares line
         double a = (N*sumxy - sumx*sumy) / (N*sumx2 - sumx*sumx);
         double b = (sumy - a*sumx) / N;
-        
+        System.out.println("*********************"+a+"********************");
+        System.out.println("*********************"+b+"********************");
         retour[0]=a;
         retour[1]=b;
         return retour;

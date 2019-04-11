@@ -30,9 +30,9 @@ public class Fenetre extends JFrame implements ActionListener{
         pCity.bStats.addActionListener(this);
         
         
-        Depenses testDepense = new Depenses(5.5, "Test","Je fais un test",2019,05,12);
+        Depenses testDepense = new Depenses(40, "Test","Je fais un test",2019,05,12);
         Depenses testDepense2 = new Depenses(10,"Test2","Ttttt",2019,05,13);
-        Depenses testDepense3 = new Depenses(8,"Test3","taydgdgf",2019,05,15);
+        Depenses testDepense3 = new Depenses(1,"Test3","taydgdgf",2019,05,15);
         ArrayList<Depenses> listTest = new ArrayList<Depenses>();
         listTest.add(testDepense);
         listTest.add(testDepense2);
