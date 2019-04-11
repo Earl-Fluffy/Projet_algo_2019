@@ -40,7 +40,7 @@ public class LagrangeInterpolation
   }
 
 
-  public static void main (String args[])
+  /*public static void main (String args[])
   {
     double x[] = {2.0, 1.0, 3.0};
     double y[] = {3.0, 4.0, 7.0};
@@ -49,5 +49,5 @@ public class LagrangeInterpolation
 
     for (int i = 0; i < 3; i++)
       System.out.println (f[i]);
-  }
+  }*/
 }
