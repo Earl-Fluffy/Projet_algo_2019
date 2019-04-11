@@ -28,7 +28,6 @@ public class Courbe extends JPanel{
 		
 		Interpolationv2 inter=new Interpolationv2(tmp,mont);
 		polynomes = inter.getCoeff();
-		System.out.print(polynomes[0]);
 		LeastSquares approximation=new LeastSquares(tmp,mont);
 		coorLeastSaquares= approximation.tabCourbe();
 	}
@@ -84,5 +83,3 @@ public class Courbe extends JPanel{
 	
 }
 		
-
-//drawLine(int x1, int y1, int x2, int y2)

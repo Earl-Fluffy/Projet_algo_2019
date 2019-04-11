@@ -7,7 +7,7 @@ public class Fenetre extends JFrame implements ActionListener{
     PLoading pLoad=new PLoading();
     PCity pCity;
     PEntree pEntree= new PEntree();
-    Courbe pCourbe;
+    Courbe pStat;
     CardLayout c1= new CardLayout();
     String[] listContent = {"CITY","ENTREE","LOADING","SAVING","STATS"};
     JPanel cards = new JPanel(c1);
@@ -38,8 +38,8 @@ public class Fenetre extends JFrame implements ActionListener{
         listTest.add(testDepense);
         listTest.add(testDepense2);
         listTest.add(testDepense3);
-        pCourbe=new Courbe(listTest);
-        cards.add(pCourbe,listContent[4]);
+        pStat=new Courbe(listTest);
+        cards.add(pStat,listContent[4]);
         
         
         

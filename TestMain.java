@@ -5,16 +5,16 @@ public class TestMain  {
         System.out.println("hi");
         
         String thisLine;
-        //Fenetre tFenetre = new Fenetre();
+        Fenetre tFenetre = new Fenetre();
 
-        try {
+        /*try {
 
             appendFile("this is added");
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
-        }
+        }*/
         //Pour l'exploitation penser à check les String vide et à les écarter
     }
 
