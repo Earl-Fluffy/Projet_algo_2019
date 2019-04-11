@@ -1,8 +1,9 @@
 import java.io.*;
 
-public class TestMain {
+public class TestMain  {
     public static void main(String[] args) {
         System.out.println("hi");
+        
         String thisLine;
         Fenetre tFenetre = new Fenetre();
 

@@ -34,7 +34,7 @@ public class Map implements ActionListener{
 	public void save (){
 	 String save = " ";
 	  for (Batiment b : listBat){
-		  save+= "Position : " + Integer.toString(b.x[0])+ ", " + Integer.toString(b.y[0])+ ". Niveau "+ Integer.toString(b.niveau)+ b.toString() + "\n";
+		  save+= Integer.toString(b.x[0])+ "; " + Integer.toString(b.y[0])+ Integer.toString(b.niveau)+ ";" + b.toString() + "\n";
 	  }
 	   
 	  try {
@@ -113,5 +113,19 @@ public class Map implements ActionListener{
 	
 	public void actionPerformed(ActionEvent e){
 		
+	}
+	
+	public ArrayList<Batiment> creerBat (String [][] infoBat){
+		ArrayList<Batiment> reconstruction = new ArrayList <Batiment> ();
+		Batiment newBat = new Hopital (0,0);
+		int i=0;
+		while (i<infoBat.length){
+			newBat = new Hopital (Integer.parseInt(infoBat[i][0]), Integer.parseInt(infoBat[i][1]));
+			newBat.niveau = Integer.parseInt(infoBat[i][2]);
+			i++;
+		}
+		reconstruction.add(newBat);
+		return reconstruction;
+		//pb catégorie
 	}
 }
