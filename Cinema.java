@@ -20,7 +20,7 @@ public class Cinema extends Batiment{
 	}
 	
 	public String toString(){
-		return " : Cinema ";
+		return "8";
 	}
 	
 }

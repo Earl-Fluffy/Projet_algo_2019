@@ -19,7 +19,7 @@ public class Maison extends Batiment{
 	}
 	
 	public String toString(){
-		return " : Maison ";
+		return "3";
 	}
 	
 }

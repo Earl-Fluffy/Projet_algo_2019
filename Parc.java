@@ -20,7 +20,7 @@ public class Parc extends Batiment{
 	}
 	
 	public String toString(){
-		return " : Parc ";
+		return "4";
 	}
 	
 }

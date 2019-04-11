@@ -5,7 +5,7 @@ import java.util.*;
 
 public class Fenetre extends JFrame implements ActionListener{
     PLoading pLoad=new PLoading();
-    PCity pCity= new PCity();
+    PCity pCity;
     PEntree pEntree= new PEntree();
     Courbe pCourbe;
     CardLayout c1= new CardLayout();
@@ -13,7 +13,8 @@ public class Fenetre extends JFrame implements ActionListener{
     JPanel cards = new JPanel(c1);
     
     
-    public Fenetre(){
+    public Fenetre(String[][] batACreer){
+        pCity= new PCity(batACreer);
         this.setSize(800,700);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         //this.setContentPane(pEntree);

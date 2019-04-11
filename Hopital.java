@@ -21,7 +21,7 @@ public Hopital (int x, int y){
 	}
 	
 	public String toString(){
-		return " : Hopital ";
+		return "1";
 	}
 	
 	

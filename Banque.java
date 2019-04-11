@@ -13,13 +13,13 @@ public class Banque extends Batiment{
 			image = "\"media\"bank n2";
 			break;
 			case 3:
-			image ="\"media\"bank n3";
+			image ="\"media\"bankn3";
 			break;
 		}
 	}
 	
 	public String toString(){
-		return " : Banque ";
+		return "6";
 	}
 	
 }

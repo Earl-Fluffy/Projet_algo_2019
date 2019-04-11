@@ -19,7 +19,7 @@ public class Gare extends Batiment{
 	}
 	
 	public String toString(){
-		return " : Gare ";
+		return "7";
 	}
 	
 }
