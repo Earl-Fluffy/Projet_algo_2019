@@ -6,13 +6,15 @@ import javax.swing.JPanel;
 public class Courbe extends JPanel{ 
 
 	ArrayList<Depenses> dep = new ArrayList<Depenses>();
-	double[] tmp= new double[dep.size()];
-	double[] mont= new double[dep.size()];
+	double[] tmp;
+	double[] mont;
 	double[] polynomes;
 	double[] coorLeastSaquares;
 	
 	public Courbe (ArrayList<Depenses> d){
 		dep=d;
+		tmp= new double[dep.size()];
+		mont= new double[dep.size()];
 		for (int i=0; i<dep.size(); i++){
 			tmp[i]=dep.get(i).getDate();
 			mont[i]=dep.get(i).getAmount();
