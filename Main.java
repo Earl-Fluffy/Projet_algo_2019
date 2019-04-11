@@ -17,10 +17,11 @@ public class Main{
 			BufferedReader br = new BufferedReader(fr);
 			
 			String texte = "";
+			String thisLine;
 			int a = 0;
-				while(a<2) //petite boucle 2 fois
+				while((thisLine=br.readLine()) !=null) //petite boucle 2 fois
 				{
-					texte = texte + br.readLine() + "\n";
+					texte = texte + thisLine + "\n";
 					a++;		
 				}
 			br.close();

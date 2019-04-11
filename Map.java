@@ -17,7 +17,7 @@ public class Map implements ActionListener{
 		listBat= new ArrayList<Batiment>();
 		listBat.addAll(creerBat(batACreer));
 		time=new Timer (30000,this);
-		positions = new boolean[6][12];
+		positions = new boolean[10][10];
 		listBat.add(h);
 
 		for(int i=0;i<listBat.size();i++) {
@@ -37,9 +37,9 @@ public class Map implements ActionListener{
 	}
 	
 	public void save (){
-	 String save = " ";
+	 String save = "";
 	  for (Batiment b : listBat){
-		  save+= Integer.toString(b.x[0])+ "; " + Integer.toString(b.y[0])+";"+ Integer.toString(b.niveau)+ ";" + b.toString() + "\n";
+		  save+= (b.x[0])+ ";" + (b.y[0])+";"+(b.niveau)+ ";" + b.toString() + "\n";
 	  }
 	   
 	  try {
@@ -68,10 +68,10 @@ public class Map implements ActionListener{
         String res="";
         BufferedReader tBuff = new BufferedReader(new FileReader(TestMain.class.getResource("media/tDoc.txt").getPath()));
         while ((thisLine = tBuff.readLine()) != null) {
-            res +="\n"+ thisLine;
+            res += thisLine+"\n";
         }
         tBuff.close();
-        usingBufferedWritter(res + "\n" + fileContent);
+        usingBufferedWritter(res + fileContent);
     }
         
 	public boolean testPresence(Batiment bat){
