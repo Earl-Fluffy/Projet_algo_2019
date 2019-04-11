@@ -5,6 +5,7 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 import java.awt.event.*;
 import java.util.*;
+import java.awt.GridLayout; 
 import java.io.*;
 
 
@@ -30,7 +31,19 @@ public class PCity extends JPanel implements ActionListener{
 		this.add(commande, BorderLayout.SOUTH);
 		
 		PanelImage cityBack = new PanelImage("media/CityBackground.jpg");
-		cityBack.setLayout(new GridLayout(10,10));
+		GridLayout g1 = new GridLayout();
+		g1.setColumns(10);
+		g1.setRows(10);
+		cityBack.setLayout(g1);
+		
+		PanelImage pImageTest = new PanelImage("media/money.jpg");
+		PanelImage pImageTest2 = new PanelImage("media/bankn3.png");
+		cityBack.add(pImageTest);
+		cityBack.add(pImageTest2);
+		for (int i=0;i<98;i++){
+			cityBack.add(Box.createGlue());
+		}
+		
 		this.add(cityBack,BorderLayout.CENTER);
 
 		JPanel infoArgent = new JPanel();
@@ -43,6 +56,8 @@ public class PCity extends JPanel implements ActionListener{
 		infoArgent.add(close);
 		close.addActionListener(this);
 		
+		
+		
 	}
 	
 	public void actionPerformed (ActionEvent e){
@@ -50,7 +65,7 @@ public class PCity extends JPanel implements ActionListener{
 	System.exit(0);
 	}
 	
-	 public static void usingBufferedWritter(String fileContent) throws IOException
+	 /*public static void usingBufferedWritter(String fileContent) throws IOException
     {
 
 
@@ -71,7 +86,7 @@ public class PCity extends JPanel implements ActionListener{
         tBuff.close();
         usingBufferedWritter(res + "\n" + fileContent);
     }
-	
+	*/
 	
 	
 	public class PanelImage extends JPanel{
