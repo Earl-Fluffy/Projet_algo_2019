@@ -19,7 +19,7 @@ public class Main{
 			String texte = "";
 			String thisLine;
 			int a = 0;
-				while((thisLine=br.readLine()) !=null) //petite boucle 2 fois
+				while((thisLine=br.readLine()) !=null)
 				{
 					texte = texte + thisLine + "\n";
 					a++;		
@@ -36,9 +36,7 @@ public class Main{
         
         String value[]=fileContent.split("\n");
 		
-		String finalValue[][]=new String [value.length][4];
-		int k=0;
-		int j=0;
+		String finalValue[][]=new String [value.length][4];		
 		for (int i=0;i<finalValue.length;i++){
 					finalValue[i]=value[i].split (";");
 				}
