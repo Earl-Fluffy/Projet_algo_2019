@@ -58,7 +58,7 @@ public class PCity extends JPanel implements ActionListener{
 	
 	public void actionPerformed (ActionEvent e){
 		myMap.save();
-	System.exit(0);
+		System.exit(0);
 	}
 	
 	 /*public static void usingBufferedWritter(String fileContent) throws IOException

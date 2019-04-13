@@ -40,20 +40,11 @@ public class Main{
 		int k=0;
 		int j=0;
 		for (int i=0;i<finalValue.length;i++){
-			//while (k<value.length){
-				for (String val:value[k].split(";")) {
-					finalValue[i][j]=val;
-					// finalValue[i]=value[k].split (";");
-					j++;
+					finalValue[i]=value[i].split (";");
 				}
-			k++;
-				j=0;
-			//}
-		}
 
 		Fenetre laFenetre = new Fenetre(finalValue);
 			
-			//System.out.println(value[i]);
 		}
 }
     

@@ -5,7 +5,7 @@ public class TestMain  {
         System.out.println("hi");
         
         String thisLine;
-        Fenetre tFenetre = new Fenetre();
+        //Fenetre tFenetre = new Fenetre();
 
         /*try {
 

@@ -18,7 +18,7 @@ public class Map implements ActionListener{
 		listBat.addAll(creerBat(batACreer));
 		time=new Timer (30000,this);
 		positions = new boolean[10][10];
-		listBat.add(h);
+		//listBat.add(h);
 
 		for(int i=0;i<listBat.size();i++) {
 			System.out.println(listBat.get(i));
@@ -37,13 +37,12 @@ public class Map implements ActionListener{
 	}
 	
 	public void save (){
-	 String save = "";
+	 String save="";
 	  for (Batiment b : listBat){
 		  save+= (b.x[0])+ ";" + (b.y[0])+";"+(b.niveau)+ ";" + b.toString() + "\n";
 	  }
-	   
+	   System.out.println(save);
 	  try {
-
             appendFile(save);
         } catch (FileNotFoundException u) {
             u.printStackTrace();
@@ -124,31 +123,31 @@ public class Map implements ActionListener{
 		ArrayList<Batiment> reconstruction = new ArrayList <Batiment> ();
 		Batiment newBat = new Hopital (0,0);
 		for (int i=0;i<infoBat.length;i++){
-			switch (Integer.parseInt(infoBat[i][3])){
+			switch (Integer.parseInt(infoBat[i][infoBat[0].length-1])){
 				case 1:
-				newBat = new Hopital (Integer.parseInt(infoBat[i][0]), Integer.parseInt(infoBat[i][1]));
-				break;
+					newBat = new Hopital (Integer.parseInt(infoBat[i][0]), Integer.parseInt(infoBat[i][1]));
+					break;
 				case 2:
-				newBat = new Resto (Integer.parseInt(infoBat[i][0]), Integer.parseInt(infoBat[i][1]));
-				break;
+					newBat = new Resto (Integer.parseInt(infoBat[i][0]), Integer.parseInt(infoBat[i][1]));
+					break;
 				case 3 :
-				newBat = new Maison (Integer.parseInt(infoBat[i][0]), Integer.parseInt(infoBat[i][1]));
-				break;
+					newBat = new Maison (Integer.parseInt(infoBat[i][0]), Integer.parseInt(infoBat[i][1]));
+					break;
 				case 4:
-				newBat = new Parc (Integer.parseInt(infoBat[i][0]), Integer.parseInt(infoBat[i][1]));
-				break;
+					newBat = new Parc (Integer.parseInt(infoBat[i][0]), Integer.parseInt(infoBat[i][1]));
+					break;
 				case 5:
-				newBat = new Mall (Integer.parseInt(infoBat[i][0]), Integer.parseInt(infoBat[i][1]));
-				break;
+					newBat = new Mall (Integer.parseInt(infoBat[i][0]), Integer.parseInt(infoBat[i][1]));
+					break;
 				case 6:
-				newBat = new Banque (Integer.parseInt(infoBat[i][0]), Integer.parseInt(infoBat[i][1]));
-				break;
+					newBat = new Banque (Integer.parseInt(infoBat[i][0]), Integer.parseInt(infoBat[i][1]));
+					break;
 				case 7:
-				newBat = new Gare (Integer.parseInt(infoBat[i][0]), Integer.parseInt(infoBat[i][1]));
-				break;
+					newBat = new Gare (Integer.parseInt(infoBat[i][0]), Integer.parseInt(infoBat[i][1]));
+					break;
 				case 8:
 					newBat = new Cinema (Integer.parseInt(infoBat[i][0]), Integer.parseInt(infoBat[i][1]));
-				break;
+					break;
 				default:
 					System.out.println("batiment non reconnu");
 					break;
