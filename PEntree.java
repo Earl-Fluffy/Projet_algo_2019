@@ -16,7 +16,7 @@ import java.awt.event.FocusEvent;
 public class PEntree extends JPanel implements ActionListener {
 
     comboB categorie;
-    final String[] categories={"Revenu","Alimentation","Transport","Loisir","Maison","Electronique","Médical","Vêtements","Autre"};
+    final String[] categories={"Médical","Alimentation","Maison","Autre","Vêtements","Revenu","Transport","Loisir",};
     //Alimentation, boisson, transport, loisir, maison, électronique, médical, autre, revenu, vêtements
 	ghostFormattedTextField jourTextField;
 	ghostFormattedTextField moisTextField;

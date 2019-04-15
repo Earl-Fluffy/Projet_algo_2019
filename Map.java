@@ -15,7 +15,9 @@ public class Map implements ActionListener{
 	
 	public Map(String[][] batACreer) {
 		listBat= new ArrayList<Batiment>();
-		listBat.addAll(creerBat(batACreer));
+		if(!batACreer[0][0].equals("")) {
+			listBat.addAll(creerBat(batACreer));
+		}
 		time=new Timer (30000,this);
 		positions = new boolean[10][10];
 		//listBat.add(h);
@@ -43,7 +45,7 @@ public class Map implements ActionListener{
 	  }
 	   System.out.println(save);
 	  try {
-            appendFile(save);
+            usingBufferedWritter(save);
         } catch (FileNotFoundException u) {
             u.printStackTrace();
         } catch (IOException u) {
@@ -61,17 +63,6 @@ public class Map implements ActionListener{
         writer.close();
     }
 
-    public static void appendFile(String fileContent) throws IOException
-    {
-        String thisLine;
-        String res="";
-        BufferedReader tBuff = new BufferedReader(new FileReader(TestMain.class.getResource("media/tDoc.txt").getPath()));
-        while ((thisLine = tBuff.readLine()) != null) {
-            res += thisLine+"\n";
-        }
-        tBuff.close();
-        usingBufferedWritter(res + fileContent);
-    }
         
 	public boolean testPresence(Batiment bat){
 		for (int i=0; i<bat.x.length;i++){
@@ -118,40 +109,46 @@ public class Map implements ActionListener{
 	public void actionPerformed(ActionEvent e){
 		
 	}
+
+	public Batiment quelTypeBatiment(String[] batimentCode){
+		Batiment batimentDecode=null;
+		switch (Integer.parseInt(batimentCode[3])){
+			case 1:
+				batimentDecode = new Hopital (Integer.parseInt(batimentCode[0]), Integer.parseInt(batimentCode[1]));
+				break;
+			case 2:
+				batimentDecode = new Resto (Integer.parseInt(batimentCode[0]), Integer.parseInt(batimentCode[1]));
+				break;
+			case 3 :
+				batimentDecode = new Maison (Integer.parseInt(batimentCode[0]), Integer.parseInt(batimentCode[1]));
+				break;
+			case 4:
+				batimentDecode = new Parc (Integer.parseInt(batimentCode[0]), Integer.parseInt(batimentCode[1]));
+				break;
+			case 5:
+				batimentDecode = new Mall (Integer.parseInt(batimentCode[0]), Integer.parseInt(batimentCode[1]));
+				break;
+			case 6:
+				batimentDecode = new Banque (Integer.parseInt(batimentCode[0]), Integer.parseInt(batimentCode[1]));
+				break;
+			case 7:
+				batimentDecode = new Gare (Integer.parseInt(batimentCode[0]), Integer.parseInt(batimentCode[1]));
+				break;
+			case 8:
+				batimentDecode = new Cinema (Integer.parseInt(batimentCode[0]), Integer.parseInt(batimentCode[1]));
+				break;
+			default:
+				System.out.println("batiment non reconnu");
+				break;
+		}
+		return batimentDecode;
+	}
 	
 	public ArrayList<Batiment> creerBat (String [][] infoBat){
 		ArrayList<Batiment> reconstruction = new ArrayList <Batiment> ();
-		Batiment newBat = new Hopital (0,0);
+		Batiment newBat = null;
 		for (int i=0;i<infoBat.length;i++){
-			switch (Integer.parseInt(infoBat[i][infoBat[0].length-1])){
-				case 1:
-					newBat = new Hopital (Integer.parseInt(infoBat[i][0]), Integer.parseInt(infoBat[i][1]));
-					break;
-				case 2:
-					newBat = new Resto (Integer.parseInt(infoBat[i][0]), Integer.parseInt(infoBat[i][1]));
-					break;
-				case 3 :
-					newBat = new Maison (Integer.parseInt(infoBat[i][0]), Integer.parseInt(infoBat[i][1]));
-					break;
-				case 4:
-					newBat = new Parc (Integer.parseInt(infoBat[i][0]), Integer.parseInt(infoBat[i][1]));
-					break;
-				case 5:
-					newBat = new Mall (Integer.parseInt(infoBat[i][0]), Integer.parseInt(infoBat[i][1]));
-					break;
-				case 6:
-					newBat = new Banque (Integer.parseInt(infoBat[i][0]), Integer.parseInt(infoBat[i][1]));
-					break;
-				case 7:
-					newBat = new Gare (Integer.parseInt(infoBat[i][0]), Integer.parseInt(infoBat[i][1]));
-					break;
-				case 8:
-					newBat = new Cinema (Integer.parseInt(infoBat[i][0]), Integer.parseInt(infoBat[i][1]));
-					break;
-				default:
-					System.out.println("batiment non reconnu");
-					break;
-			}
+			newBat=quelTypeBatiment(infoBat[i]);
 			newBat.niveau = Integer.parseInt(infoBat[i][2]);
 			reconstruction.add(newBat);
 		}

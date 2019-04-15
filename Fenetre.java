@@ -27,6 +27,7 @@ public class Fenetre extends JFrame implements ActionListener{
         this.setContentPane(cards);
         
         pEntree.annuler.addActionListener(this);
+        pEntree.ok.addActionListener(this);
         pCity.bNouvelleEntree.addActionListener(this);
         pCity.bStats.addActionListener(this);
         
@@ -55,7 +56,9 @@ public class Fenetre extends JFrame implements ActionListener{
 			c1.show(cards,listContent[1]);
 		} else if (e.getSource()==pCity.bStats){
 			c1.show(cards,listContent[4]);
-		}
+		} else if (e.getSource()== pEntree.ok){
+
+        }
 		
 		
 

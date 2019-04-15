@@ -15,8 +15,8 @@ public abstract class  Batiment{
 		this.y[0]=y;
 	}
 	
-	public void fusion(Batiment b){
-		if (this.image == b.image & this.niveau <=3){
+	public void fusion(Batiment b, Map m){
+		if (this.image == b.image && this.niveau <=3){
 			b.image = "0";
 			this.liste.addAll(b.liste);
 			this.niveau ++;
@@ -36,12 +36,26 @@ public abstract class  Batiment{
 		}
 			this.coef +=0.1;
 			this.attribuerIm();
+			this.trouverPosition(m);
 		} else {
 			System.out.println("Impossible à fusionner");
 		}
 	}
 	
-	public abstract void attribuerIm();	
+	public abstract void attribuerIm();
+
+	public void trouverPosition(Map m){
+		do{
+			int xRandom = (int) (Math.random()*11);
+			int yRandom = (int) (Math.random()*11);
+			for (int i=0; i<this.x.length;i++){
+				this.x[i]=xRandom+i;
+			}
+			for (int i=0; i<this.y.length;i++){
+				this.y[i]=yRandom+i;
+			}
+		} while (!m.testPresence(this));
+	}
 	
 	public void deplacer(int newx, int newy){
 		x[0]=newx;
