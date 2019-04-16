@@ -4,7 +4,7 @@ import java.awt.event.*;
 import java.util.*;
 
 public class Fenetre extends JFrame implements ActionListener{
-    PLoading pLoad=new PLoading();
+    PLoading pLoad=new PLoading(); // A voir si nécessaire...
     PCity pCity;
     PEntree pEntree= new PEntree();
     Courbe pStat;
@@ -14,11 +14,11 @@ public class Fenetre extends JFrame implements ActionListener{
     
     
     public Fenetre(String[][] batACreer){
-        pCity= new PCity(batACreer);
-        this.setSize(800,700);
+        this.setSize(800,700); //Propriétés de la fenetre
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        //this.setContentPane(pEntree);
         this.setResizable(false);
+
+        pCity= new PCity(batACreer); //Création et ajout des paneaux
         
         cards.add(pCity,listContent[0]);
         cards.add(pEntree,listContent[1]);
@@ -26,12 +26,12 @@ public class Fenetre extends JFrame implements ActionListener{
         
         this.setContentPane(cards);
         
-        pEntree.annuler.addActionListener(this);
+        pEntree.annuler.addActionListener(this); //ActionListener de tous les boutons qui doivent être écoutés par l'extérieur
         pEntree.ok.addActionListener(this);
         pCity.bNouvelleEntree.addActionListener(this);
         pCity.bStats.addActionListener(this);
         
-        
+        //Test (à retirer)
         Depenses testDepense = new Depenses(40, "Test","Je fais un test",2019,05,12);
         Depenses testDepense2 = new Depenses(10,"Test2","Ttttt",2019,05,13);
         Depenses testDepense3 = new Depenses(1,"Test3","taydgdgf",2019,05,15);
@@ -41,11 +41,7 @@ public class Fenetre extends JFrame implements ActionListener{
         listTest.add(testDepense3);
         pStat=new Courbe(listTest);
         cards.add(pStat,listContent[4]);
-        
-        
-        
-        
-        
+
         this.setVisible(true);
     }
     
@@ -59,11 +55,8 @@ public class Fenetre extends JFrame implements ActionListener{
 		} else if (e.getSource()== pEntree.ok){
 
         }
-		
-		
 
     }
-    
     
 
 }

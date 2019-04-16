@@ -5,16 +5,11 @@ public class Main{
 
 
     public static void main(String[] args) {
-        System.out.println("hi");
-        String texte="";
+        String texte=""; //Variable qui récupère les infos de tDoc
 
-
-
-
-        try {
+        try { //Lecture de tDoc
 			FileReader fr = new FileReader(TestMain.class.getResource("media/tDoc.txt").getPath());
 			BufferedReader br = new BufferedReader(fr);
-			
 
 			String thisLine;
 			int a = 0;
@@ -25,7 +20,7 @@ public class Main{
 				}
 			br.close();
 
-			texte=texte.trim();
+			texte=texte.trim(); //Enlève les espaces inutiles
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
@@ -34,13 +29,13 @@ public class Main{
 
 
 
-        String value[] = texte.split("\n");
+        String value[] = texte.split("\n"); //Découpe de texte à chaque à la ligne
 
 		String finalValue[][] = new String[value.length][4];
 		for (int i = 0; i < finalValue.length; i++) {
-			finalValue[i] = value[i].split(";");
+			finalValue[i] = value[i].split(";"); //Découpe de value à chaque ;
 		}
-		Fenetre laFenetre = new Fenetre(finalValue);
+		Fenetre laFenetre = new Fenetre(finalValue); // Lancement de la fenêtre principale
 
 		}
 }

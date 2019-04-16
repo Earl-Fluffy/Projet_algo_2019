@@ -16,11 +16,11 @@ public class PCity extends JPanel implements ActionListener{
 	JPanel commande =new JPanel();
 	
 	PCity(String[][] batACreer){
-		myMap = new Map(batACreer);
+		myMap = new Map(batACreer); //L'objet qui répertorie et gère tous les bâtiments
 
 		this.setLayout(g1);
 
-		commande.setLayout(null);
+		commande.setLayout(null); //Panel qui contient les deux boutons Nouvelle entrée et Statisiques
 		commande.setBackground(Color.blue);
 		commande.setPreferredSize(new Dimension(800,100));
 		bNouvelleEntree.setBounds(100,15,200,67);
@@ -29,9 +29,10 @@ public class PCity extends JPanel implements ActionListener{
 		commande.add(bStats);
 		this.add(commande, BorderLayout.SOUTH);
 		
-		PanelImage cityBack = new PanelImage("media/CityBackground.jpg");
+		PanelImage cityBack = new PanelImage("media/CityBackground.jpg"); //Panel où va être affiché la ville
 		cityBack.setLayout(null);
-		
+
+		//Images tests (à supprimer)
 		PanelImage pImageTest = new PanelImage("media/money.jpg");
 		pImageTest.setBounds(60+4*58,3+2*58,58,58);
 		PanelImage pImageTest2 = new PanelImage("media/bankn3.png");
@@ -42,7 +43,7 @@ public class PCity extends JPanel implements ActionListener{
 		
 		this.add(cityBack,BorderLayout.CENTER);
 
-		JPanel infoArgent = new JPanel();
+		JPanel infoArgent = new JPanel(); //Panel avec l'argent virtuel et le bouton fermer
 		infoArgent.setLayout(null);
 		infoArgent.setBackground(Color.blue);
 		infoArgent.setPreferredSize(new Dimension(800,30));
@@ -51,41 +52,15 @@ public class PCity extends JPanel implements ActionListener{
 		close.setBackground(Color.red);
 		infoArgent.add(close);
 		close.addActionListener(this);
-		
-		
-		
+
 	}
 	
 	public void actionPerformed (ActionEvent e){
 		myMap.save();
 		System.exit(0);
 	}
-	
-	 /*public static void usingBufferedWritter(String fileContent) throws IOException
-    {
 
-
-        BufferedWriter writer = new BufferedWriter(new FileWriter(TestMain.class.getResource("media/tDoc.txt").getPath()));
-        // !!!!!! Ne pas toucher sinon mort potentielle du PC
-        writer.write(fileContent);
-        writer.close();
-    }
-
-    public static void appendFile(String fileContent) throws IOException
-    {
-        String thisLine;
-        String res="";
-        BufferedReader tBuff = new BufferedReader(new FileReader(TestMain.class.getResource("media/tDoc.txt").getPath()));
-        while ((thisLine = tBuff.readLine()) != null) {
-            res +="\n"+ thisLine;
-        }
-        tBuff.close();
-        usingBufferedWritter(res + "\n" + fileContent);
-    }
-	*/
-	
-	
-	public class PanelImage extends JPanel{
+	class PanelImage extends JPanel{ //Dédfinit un JPanel avec une image de fond
 		private Image img=null;
 		PanelImage(String pathname){
 			try{
@@ -98,4 +73,6 @@ public class PCity extends JPanel implements ActionListener{
 			g.drawImage(img,0,0,this.getWidth(),this.getHeight(),this);
 		}
 	}
+
 }
+

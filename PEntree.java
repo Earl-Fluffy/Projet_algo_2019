@@ -1,19 +1,15 @@
 import javax.imageio.ImageIO;
 import javax.swing.*;
-import javax.swing.text.NumberFormatter;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.IOException;
 import java.text.DecimalFormat;
-import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
 import java.awt.event.FocusListener;
 import java.awt.event.FocusEvent;
 
 
-public class PEntree extends JPanel implements ActionListener {
+public class PEntree extends JPanel{
 
     comboB categorie;
     final String[] categories={"Médical","Alimentation","Maison","Autre","Vêtements","Revenu","Transport","Loisir",};
@@ -28,7 +24,7 @@ public class PEntree extends JPanel implements ActionListener {
 	Image img ;
 
 
-    public PEntree() {
+    public PEntree(){
 
         try {
             img = ImageIO.read(new File(TestMain.class.getResource("media/entree.bmp").getPath())); //bloc try/catch gère les exceptions
@@ -37,10 +33,11 @@ public class PEntree extends JPanel implements ActionListener {
         }
 
         this.setLayout(null);
-        categorie = new comboB(categories);
+
+        categorie = new comboB(categories); //Objet pour définir le type de dépense
         categorie.setBounds(350,170,350,50);
         
-        jourTextField = new ghostFormattedTextField(new SimpleDateFormat("dd"),"Date dd");
+        jourTextField = new ghostFormattedTextField(new SimpleDateFormat("dd"),"Date dd"); //3 champs formatés pour la date
 		jourTextField.setBounds(220,275,80,50);
 		jourTextField.setFocusLostBehavior(JFormattedTextField.PERSIST);
 		moisTextField = new ghostFormattedTextField(new SimpleDateFormat("MM"),"Mois MM");
@@ -50,7 +47,7 @@ public class PEntree extends JPanel implements ActionListener {
 		anneeTextField.setBounds(420,275,160,50);
 		anneeTextField.setFocusLostBehavior(JFormattedTextField.PERSIST);
 
-		notes = new JTextArea();
+		notes = new JTextArea(); //Permet à l'utilisateur d'anoter la dépense
 		notes.setBounds(100,345,600,200);
 		notes.setLineWrap(true);
 
@@ -58,12 +55,10 @@ public class PEntree extends JPanel implements ActionListener {
 		montant.setFocusLostBehavior(JFormattedTextField.COMMIT_OR_REVERT);
 		montant.setBounds(100,170,80,50);
 
-		ok = new Bouton("OK !","media/white.bmp");
+		ok = new Bouton("OK !","media/white.bmp"); //Bouton qui permet d'enregistrer l'entrée et de revenir à PCity
 		ok.setBounds(180,600,160,50);
-		ok.addActionListener(this);
-		annuler = new Bouton ("Annuler...","media/white.bmp");
+		annuler = new Bouton ("Annuler...","media/white.bmp"); //Bouton qui permet d'annuler et de retourner à PCity
 		annuler.setBounds(460,600,160,50);
-		annuler.addActionListener(this);
 
         this.add(categorie);
         this.add(jourTextField);
@@ -75,17 +70,13 @@ public class PEntree extends JPanel implements ActionListener {
         this.add(annuler);
     }
 
-    public void actionPerformed(ActionEvent e){
-
-
-    }
 
     public void paintComponent (Graphics g){
         g.drawImage(img,0,0,this.getWidth(),this.getHeight(),this);
 
     }
 
-    public class comboB extends JComboBox<String>{
+    public class comboB extends JComboBox<String>{ //JComboBox avec une image fr fond
         private Image img= null;
         comboB(String[] arg){
             super(arg);
@@ -105,7 +96,7 @@ public class PEntree extends JPanel implements ActionListener {
         }
     }
     
-    public class ghostFormattedTextField extends JFormattedTextField implements FocusListener{
+    public class ghostFormattedTextField extends JFormattedTextField implements FocusListener{ //JtextField avec un ghost texte
 		private final String ghostText;
 		private Color ghostColor;
 		
@@ -138,7 +129,7 @@ public class PEntree extends JPanel implements ActionListener {
         
 	}
 
-    public class ghostTextArea extends JTextArea implements FocusListener{
+    public class ghostTextArea extends JTextArea implements FocusListener{ //JTextArea avec un ghostText
         private final String ghostText;
 
 

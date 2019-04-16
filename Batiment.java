@@ -1,21 +1,21 @@
 import java.util.ArrayList; 
 
 public abstract class  Batiment{
-	double coef;
-	ArrayList <Depenses> liste = new ArrayList();
-	int niveau;
-	int[] x;
-	int[] y;
-	String image;
+	double coef; //Argent que raporte le batiment toutes les 5 minutes
+	ArrayList <Depenses> liste = new ArrayList(); //Liste des dépenses qui ont entrainné la création de ce bâtiment
+	int niveau; //Détermine la taille du bâtiment
+	int[] x; //Enregistre le(s) x que le batiment occupe
+	int[] y; //Pareil pour les y
+	String image; //Pathname de l'image correspondant au batiment (selon son type et son niveau)
 	
-	public Batiment (int x, int y){
+	public Batiment (int x, int y){ //Création à niveau 0
 		this.x= new int[1];
 		this.y=new int[1];
 		this.x[0]=x;
 		this.y[0]=y;
 	}
 	
-	public void fusion(Batiment b, Map m){
+	public void fusion(Batiment b, Map m){ //Permet de fusionner 2 bâtiments et de le replacer
 		if (this.image == b.image && this.niveau <=3){
 			b.image = "0";
 			this.liste.addAll(b.liste);
@@ -42,9 +42,9 @@ public abstract class  Batiment{
 		}
 	}
 	
-	public abstract void attribuerIm();
+	public abstract void attribuerIm(); //Permet d'attribuer l'image correspondant eu niveau du bâtiment
 
-	public void trouverPosition(Map m){
+	public void trouverPosition(Map m){ //Permet de trouver une position aléatoire non occupée à un batiment en prenant en compte sa taille
 		do{
 			int xRandom = (int) (Math.random()*11);
 			int yRandom = (int) (Math.random()*11);
@@ -57,9 +57,13 @@ public abstract class  Batiment{
 		} while (!m.testPresence(this));
 	}
 	
-	public void deplacer(int newx, int newy){
-		x[0]=newx;
-		y[0]=newy;
+	public void deplacer(int newx, int newy){ //Permet de déplacer un batiment en prenant en compte sa taille mais sans test préliminaire
+		for (int i =0; i<x.length;i++){
+			x[0+i]=newx+i;
+		}
+		for (int i=0;i<y.length;i++) {
+			y[0+i] = newy+i;
+		}
 	}
 	
 	

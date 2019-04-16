@@ -7,38 +7,34 @@ import java.util.Collections;
 
 public class Map implements ActionListener{
 	public ArrayList<Batiment> listBat;
-	public Timer time;
+	public Timer time; //Permet de récolter l'argent à intervalle donné
 	public int argent;
-	public boolean[][] positions;
-	public LinkedList<Depenses> sommeDepenses;
-	Hopital h = new Hopital (50,50);
+	public boolean[][] positions; //Indique les positions occupées et libres. Libre == true
 	
 	public Map(String[][] batACreer) {
 		listBat= new ArrayList<Batiment>();
-		if(!batACreer[0][0].equals("")) {
+		if(!batACreer[0][0].equals("")) { //Si il y a des bâtiments archivés à recréer
 			listBat.addAll(creerBat(batACreer));
 		}
-		time=new Timer (30000,this);
+		time=new Timer (300000,this); //Argent sera récolté toutes les 5 minutes
 		positions = new boolean[10][10];
-		//listBat.add(h);
 
+		//Test des batiments (à supprimer)
 		for(int i=0;i<listBat.size();i++) {
 			System.out.println(listBat.get(i));
 		}
 	}
 	
-	public LinkedList<Depenses> sommer (){
+	public LinkedList<Depenses> sommer (){ //Fonction qui permet de sommer toutes les dépenses enregistrées et de les organiser par date
 		LinkedList <Depenses> sum = new LinkedList <Depenses>();
 		for (Batiment b :listBat){
-			for (Depenses d: b.liste){
-				sum.add(d);
-			}
+			sum.addAll(b.liste);
 		}
 		Collections.sort(sum);
 		return sum;
 	}
 	
-	public void save (){
+	public void save (){ //Fonction qui permet de sauvegarder toutes les dépenses à la fermeture du programme
 	 String save="";
 	  for (Batiment b : listBat){
 		  save+= (b.x[0])+ ";" + (b.y[0])+";"+(b.niveau)+ ";" + b.toString() + "\n";
@@ -53,9 +49,7 @@ public class Map implements ActionListener{
         }
 	}
 	
-	 public static void usingBufferedWritter(String fileContent) throws IOException
-    {
-
+	 public static void usingBufferedWritter(String fileContent) throws IOException { //Fonction qui permet d'écrire fileContent dans tDoc
 
         BufferedWriter writer = new BufferedWriter(new FileWriter(TestMain.class.getResource("media/tDoc.txt").getPath()));
         // !!!!!! Ne pas toucher sinon mort potentielle du PC
@@ -63,8 +57,15 @@ public class Map implements ActionListener{
         writer.close();
     }
 
-        
-	public boolean testPresence(Batiment bat){
+    public void modifierPresence (boolean valeur, Batiment bat){
+		for (int i=0; i<bat.x.length;i++){
+			for(int j=0;j<bat.y.length;j++){
+				positions[bat.y[j]][bat.x[i]]=valeur;
+				}
+			}
+	}
+
+	public boolean testPresence(Batiment bat){ //Fonction qui permet de vérifier si bat (bâtiment) est à une position occupée
 		for (int i=0; i<bat.x.length;i++){
 			for(int j=0;j<bat.y.length;j++){
 				if (positions[j][i]){
@@ -75,42 +76,49 @@ public class Map implements ActionListener{
 		return true;
 	}
 	
-	public boolean ajoutBat(Batiment ajout){
+	public boolean ajoutBat(Batiment ajout){ //Permet d'ajouter un bâtiment à la map et de mettre à jour le tableau des positions
 		boolean possible=testPresence(ajout);
-		if(possible){
+		if(testPresence(ajout)){
 			listBat.add(ajout);
+			modifierPresence(false,ajout);
 		}
 		return possible;
 	}
 	
-	public boolean deplacementBat(Batiment bat, int newX, int newY){
+	public boolean deplacementBat(Batiment bat, int newX, int newY){ //Permet de savoit si déplacer un bat est possible et de le faire si oui
 		int x=bat.x[0];
 		int y=bat.y[0];
+		modifierPresence(true,bat);
 		bat.deplacer(newX,newY);
 		if (testPresence(bat)){
+			modifierPresence(false,bat);
 			return true;
 		} else {
 			bat.deplacer(x,y);
+			modifierPresence(false,bat);
 			return false;
 		}
 		
 	}
 	
-	private void gagneArgent(){
+	private void gagneArgent(){ //Permet de récolter l'argent des batiments
 		for (int i=0; i<listBat.size();i++){
 			argent = argent + (int)listBat.get(i).coef;
 		}
 	}
 	
-	public void gagneArgentLaunch(){
-		
+	public void gagneArgentLaunch(int tempsEcouleMilli){ //Permet de récupérer l'argent des bâtiments en fonction du temps passé depuis la dernière fois
+		for(int i=0;i<listBat.size();i++){
+			argent= argent + (int)listBat.get(i).coef*(tempsEcouleMilli/300000);
+		}
 	}
-	
+
+	//Utile ? A voir plus tard
 	public void actionPerformed(ActionEvent e){
 		
 	}
 
-	public Batiment quelTypeBatiment(String[] batimentCode){
+	public Batiment quelTypeBatiment(String[] batimentCode){ //Permet de creer le bon type de bâtiment en fonction de son numéro de catégorie
 		Batiment batimentDecode=null;
 		switch (Integer.parseInt(batimentCode[3])){
 			case 1:
@@ -144,7 +152,7 @@ public class Map implements ActionListener{
 		return batimentDecode;
 	}
 	
-	public ArrayList<Batiment> creerBat (String [][] infoBat){
+	public ArrayList<Batiment> creerBat (String [][] infoBat){ //Permet de creer les batiments archivés au lancement à partir du contenu de tDoc traité
 		ArrayList<Batiment> reconstruction = new ArrayList <Batiment> ();
 		Batiment newBat = null;
 		for (int i=0;i<infoBat.length;i++){
