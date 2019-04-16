@@ -1,4 +1,15 @@
 
+  /**
+   * CLASSE PROVENANT D'INTERNET POUR FAIRE MARCHER LA CALSSE MATRIX
+   * SOURCE :https://math.nist.gov/javanumerics/jama/
+   */
+  
+  
+  
+  
+  
+  
+  
 /** QR Decomposition.
 <P>
    For an m-by-n matrix A with m >= n, the QR decomposition is an m-by-n

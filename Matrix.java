@@ -1,4 +1,18 @@
 
+  /**
+   * CLASSE PROVENANT D'INTERNET. PERMET DE FAIRE DES MATRICES ET TOUTES SORTES D'OPÉRATIONS SUR LES MATRICES.
+   * SOURCE :https://math.nist.gov/javanumerics/jama/
+   * CLASSE toString FAITE MAIN (ligne 1063)
+   */
+  
+  
+  
+  
+  
+ 
+
+
+
 import java.text.NumberFormat;
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;

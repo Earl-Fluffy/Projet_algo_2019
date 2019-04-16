@@ -1,4 +1,16 @@
 
+  /**
+   * CLASSE PROVENANT D'INTERNET POUR FAIRE MARCHER LA CALSSE MATRIX
+   * SOURCE :https://math.nist.gov/javanumerics/jama/
+   */
+  
+  
+  
+  
+  
+  
+  
+  
    /** Cholesky Decomposition.
    <P>
    For a symmetric, positive definite matrix A, the Cholesky decomposition

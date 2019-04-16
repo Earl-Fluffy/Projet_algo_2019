@@ -1,4 +1,15 @@
 
+  /**
+   * CLASSE PROVENANT D'INTERNET POUR FAIRE MARCHER LA CALSSE MATRIX
+   * SOURCE :https://math.nist.gov/javanumerics/jama/
+   */
+  
+  
+  
+  
+  
+  
+  
 
 /** Eigenvalues and eigenvectors of a real matrix. 
 <P>

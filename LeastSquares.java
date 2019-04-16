@@ -1,3 +1,11 @@
+
+  /**
+   * CLASSE PROVENANT D'INTERNET POUR FAIRE UNE INTERPOLATION AVEC LA MÉTHODE DES MOINDRE CARRÉS
+   * SOURCE :https://introcs.cs.princeton.edu/java/36inheritance/LeastSquares.java.html
+   * La classe a été remaniée pour répondre à nos besoins car elle traçait directement la droite et nous voulons simplement récupérer les coefficients
+   */
+
+
 /******************************************************************************
  *  Compilation:  javac LeastSquares.java
  *  Execution:    java LeastSquares
@@ -39,8 +47,6 @@ public class LeastSquares {
 			sumxy += x[i]*y[i];
 		}
 
-
-        // draw the least squares line
         double a = (N*sumxy - sumx*sumy) / (N*sumx2 - sumx*sumx);
         double b = (sumy - a*sumx) / N;
         System.out.println("*********************"+a+"********************");
