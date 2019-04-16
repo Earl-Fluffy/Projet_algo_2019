@@ -53,7 +53,18 @@ public class Fenetre extends JFrame implements ActionListener{
 		} else if (e.getSource()==pCity.bStats){
 			c1.show(cards,listContent[4]);
 		} else if (e.getSource()== pEntree.ok){
-
+            int jour = Integer.parseInt(pEntree.jourTextField.getText());
+            int mois=Integer.parseInt(pEntree.moisTextField.getText());
+            int annee = Integer.parseInt(pEntree.anneeTextField.getText());
+            String note=pEntree.notes.getText();
+            int numCategorie = pEntree.categorie.getSelectedIndex();
+            double montant = Double.parseDouble(pEntree.montant.getText());
+            Batiment nouveauBat=pCity.myMap.quelTypeBatiment(new String[]{"0","0","0",""+numCategorie+1}); //Batiment créé mais sa position n'est pas encore bonne
+            nouveauBat.trouverPosition(pCity.myMap);
+            pCity.myMap.ajoutBat(nouveauBat);
+            Depenses nouvelleDepense = new Depenses(montant,nouveauBat.toString(),note,annee,jour,mois);
+            nouveauBat.liste.add(nouvelleDepense);
+            c1.show(cards,listContent[0]);
         }
 
     }

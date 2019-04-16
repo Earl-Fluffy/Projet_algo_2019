@@ -13,11 +13,16 @@ public class Map implements ActionListener{
 	
 	public Map(String[][] batACreer) {
 		listBat= new ArrayList<Batiment>();
+        positions = new boolean[10][10];
 		if(!batACreer[0][0].equals("")) { //Si il y a des bâtiments archivés à recréer
-			listBat.addAll(creerBat(batACreer));
+			ArrayList<Batiment> batArchives=creerBat(batACreer);
+		    listBat.addAll(batArchives);
+			for (Batiment bat : batArchives){
+			    modifierPresence(false,bat);
+            }
 		}
 		time=new Timer (300000,this); //Argent sera récolté toutes les 5 minutes
-		positions = new boolean[10][10];
+
 
 		//Test des batiments (à supprimer)
 		for(int i=0;i<listBat.size();i++) {
@@ -66,8 +71,12 @@ public class Map implements ActionListener{
 	}
 
 	public boolean testPresence(Batiment bat){ //Fonction qui permet de vérifier si bat (bâtiment) est à une position occupée
+
 		for (int i=0; i<bat.x.length;i++){
 			for(int j=0;j<bat.y.length;j++){
+			    if(i>9 || j>9){
+			        return false;
+                }
 				if (positions[j][i]){
 					return false;
 				}

@@ -13,6 +13,8 @@ public abstract class  Batiment{
 		this.y=new int[1];
 		this.x[0]=x;
 		this.y[0]=y;
+		niveau=0;
+		this.attribuerIm();
 	}
 	
 	public void fusion(Batiment b, Map m){ //Permet de fusionner 2 bâtiments et de le replacer
@@ -46,8 +48,8 @@ public abstract class  Batiment{
 
 	public void trouverPosition(Map m){ //Permet de trouver une position aléatoire non occupée à un batiment en prenant en compte sa taille
 		do{
-			int xRandom = (int) (Math.random()*11);
-			int yRandom = (int) (Math.random()*11);
+			int xRandom = (int) (Math.random()*10);
+			int yRandom = (int) (Math.random()*10);
 			for (int i=0; i<this.x.length;i++){
 				this.x[i]=xRandom+i;
 			}
