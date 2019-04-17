@@ -7,10 +7,10 @@ public class Main{
     public static void main(String[] args) {
         String texte=""; //Variable qui récupère les infos de tDoc
 
-        try { //Lecture de tDoc
+        try { //Lecture de tDoc et date
 			FileReader fr = new FileReader(TestMain.class.getResource("media/tDoc.txt").getPath());
 			BufferedReader br = new BufferedReader(fr);
-
+			long date=br.read();
 			String thisLine;
 			int a = 0;
 				while((thisLine=br.readLine()) !=null && thisLine!="")

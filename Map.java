@@ -44,9 +44,10 @@ public class Map implements ActionListener{
 	  for (Batiment b : listBat){
 		  save+= (b.x[0])+ ";" + (b.y[0])+";"+(b.niveau)+ ";" + b.toString() + "\n";
 	  }
-	   System.out.println(save);
+	   //System.out.println(save);
 	  try {
-            usingBufferedWritter(save);
+            usingBufferedWritter(save,"media/tDoc.txt");
+            usingBufferedWritter(""+System.currentTimeMillis(),"media/date.txt");
         } catch (FileNotFoundException u) {
             u.printStackTrace();
         } catch (IOException u) {
@@ -54,9 +55,9 @@ public class Map implements ActionListener{
         }
 	}
 	
-	 public static void usingBufferedWritter(String fileContent) throws IOException { //Fonction qui permet d'écrire fileContent dans tDoc
+	 public static void usingBufferedWritter(String fileContent,String pathname) throws IOException { //Fonction qui permet d'écrire fileContent dans tDoc
 
-        BufferedWriter writer = new BufferedWriter(new FileWriter(TestMain.class.getResource("media/tDoc.txt").getPath()));
+        BufferedWriter writer = new BufferedWriter(new FileWriter(TestMain.class.getResource(pathname).getPath()));
         // !!!!!! Ne pas toucher sinon mort potentielle du PC
         writer.write(fileContent);
         writer.close();
