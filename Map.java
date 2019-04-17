@@ -168,7 +168,7 @@ public class Map implements ActionListener{
 		Batiment newBat = null;
 		for (int i=0;i<infoBat.length;i++){
 			newBat=quelTypeBatiment(infoBat[i]);
-			newBat.niveau = Integer.parseInt(infoBat[i][2]);
+			newBat.setNiveauDecode(Integer.parseInt(infoBat[i][2]));
 			reconstruction.add(newBat);
 		}
 

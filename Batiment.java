@@ -1,12 +1,16 @@
-import java.util.ArrayList; 
+import javax.swing.*;
+import java.awt.*;
+import java.util.ArrayList;
 
 public abstract class  Batiment{
 
+	BanqueDImages images = new BanqueDImages();
 	ArrayList <Depenses> liste = new ArrayList(); //Liste des dépenses qui ont entrainné la création de ce bâtiment
 	int niveau; //Détermine la taille du bâtiment
 	int[] x; //Enregistre le(s) x que le batiment occupe
 	int[] y; //Pareil pour les y
-	String image; //Pathname de l'image correspondant au batiment (selon son type et son niveau)
+	Image image; //Pathname de l'image correspondant au batiment (selon son type et son niveau)
+	JPanel myPanel;
 	
 	public Batiment (int x, int y){ //Création à niveau 0
 		this.x= new int[1];
@@ -16,22 +20,38 @@ public abstract class  Batiment{
 		niveau=0;
 		this.attribuerIm();
 	}
+
+	public void setNiveauDecode (int newNiveau){
+		this.niveau=newNiveau;
+		switch (niveau) {
+			case 1:
+				this.x = new int[2];
+				this.y = new int[1];
+				break;
+			case 2:
+				this.x = new int[2];
+				this.y = new int[2];
+				break;
+		}
+		for (int i=0;i<x.length;i++){
+			x[i]=x[0]+i;
+		}
+		for(int i=0;i<y.length;i++){
+			y[i]=y[0]+i;
+		}
+		this.attribuerIm();
+	}
 	
 	public void fusion(Batiment b, Map m){ //Permet de fusionner 2 bâtiments et de le replacer
-		if (this.image == b.image && this.niveau <=3){
-			b.image = "0";
+		if (this.niveau == b.niveau && this.niveau <3){
 			this.liste.addAll(b.liste);
 			this.niveau ++;
 			switch (niveau){
 			case 1:
-			this.x= new int[1];
+			this.x= new int[2];
 			this.y=new int [1];
 			break;
 			case 2:
-			this.x= new int [2];
-			this.y=new int [1];
-			break;
-			case 3:
 			this.x= new int [2];
 			this.y=new int [2];
 			break;
@@ -39,6 +59,7 @@ public abstract class  Batiment{
 
 			this.attribuerIm();
 			this.trouverPosition(m);
+			m.listBat.remove(b);
 		} else {
 			System.out.println("Impossible à fusionner");
 		}

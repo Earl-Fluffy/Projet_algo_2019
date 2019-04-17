@@ -8,13 +8,13 @@ public class Resto extends Batiment {
 	public void attribuerIm(){
 		switch (niveau){
 			case 1:
-			image = "\"media\"resto n1";	
+			image = images.resto1;
 			break;
 			case 2:
-			image = "\"media\"resto n2";
+			image = images.resto2;
 			break;
 			case 3:
-			image ="\"media\"resto n3";
+			image =images.resto3;
 			break;
 		}
 	}

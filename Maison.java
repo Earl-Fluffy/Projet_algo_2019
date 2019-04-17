@@ -6,13 +6,13 @@ public class Maison extends Batiment{
 	public void attribuerIm(){
 		switch (niveau){
 			case 1:
-			image = "\"media\"maison n1";	
+			image = null;
 			break;
 			case 2:
-			image = "\"media\"maison n2";
+			image = null;
 			break;
 			case 3:
-			image ="\"media\"maison n3";
+			image =null;
 			break;
 		}
 	}

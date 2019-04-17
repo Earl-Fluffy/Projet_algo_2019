@@ -6,14 +6,14 @@ public Hopital (int x, int y){
 		
 		public void attribuerIm(){
 			switch (niveau){
+			case 0:
+			image = images.hopital1;
+			break;
 			case 1:
-			image = "\"media\"Hopital n1";	
+			image = images.hopital2;
 			break;
 			case 2:
-			image = "\"media\"hopital n2";
-			break;
-			case 3:
-			image ="\"media\"hopital n3";
+			image =images.hopital3;
 			break;
 		}
 		
