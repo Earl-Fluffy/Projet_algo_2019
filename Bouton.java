@@ -14,7 +14,7 @@ public class Bouton extends JButton {
     Bouton(String str, String pathName){
         this.name =str;
         try {
-            img = ImageIO.read(new File(TestMain.class.getResource(pathName).getPath())); //bloc try/catch gère les exceptions
+            img = ImageIO.read(new File(Main.class.getResource(pathName).getPath())); //bloc try/catch gère les exceptions
         } catch (IOException e){
             e.printStackTrace();
         }

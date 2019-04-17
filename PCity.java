@@ -69,7 +69,7 @@ public class PCity extends JPanel implements ActionListener{
 		private Image img=null;
 		PanelImage(String pathname){
 			try{
-				img = ImageIO.read(new File(TestMain.class.getResource(pathname).getPath()));
+				img = ImageIO.read(new File(Main.class.getResource(pathname).getPath()));
 			} catch (IOException e){
 				e.printStackTrace();
 			}
