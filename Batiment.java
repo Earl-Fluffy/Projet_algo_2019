@@ -1,7 +1,7 @@
 import java.util.ArrayList; 
 
 public abstract class  Batiment{
-	double coef; //Argent que raporte le batiment toutes les 5 minutes
+
 	ArrayList <Depenses> liste = new ArrayList(); //Liste des dépenses qui ont entrainné la création de ce bâtiment
 	int niveau; //Détermine la taille du bâtiment
 	int[] x; //Enregistre le(s) x que le batiment occupe
@@ -36,7 +36,7 @@ public abstract class  Batiment{
 			this.y=new int [2];
 			break;
 		}
-			this.coef +=0.1;
+
 			this.attribuerIm();
 			this.trouverPosition(m);
 		} else {
@@ -70,7 +70,7 @@ public abstract class  Batiment{
 	
 	
 	public String toString(){
-		return ("Construction d'un bâtiment de niveau " + niveau + " de coefficient " + coef + " à la position (" + x + "," + y + ")") ;
+		return ("Construction d'un bâtiment de niveau " + niveau + " de coefficient " + niveau*5 + " à la position (" + x + "," + y + ")") ;
 	}
 }
 

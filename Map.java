@@ -8,7 +8,7 @@ import java.util.Collections;
 public class Map implements ActionListener{
 	public ArrayList<Batiment> listBat;
 	public Timer time; //Permet de récolter l'argent à intervalle donné
-	public int argent;
+	public long argent;
 	public boolean[][] positions; //Indique les positions occupées et libres. Libre == true
 	
 	public Map(String[][] batACreer) {
@@ -113,13 +113,14 @@ public class Map implements ActionListener{
 	
 	private void gagneArgent(){ //Permet de récolter l'argent des batiments
 		for (int i=0; i<listBat.size();i++){
-			argent = argent + (int)listBat.get(i).coef;
+			argent = argent + (int)listBat.get(i).niveau*5;
 		}
 	}
 	
-	public void gagneArgentLaunch(int tempsEcouleMilli){ //Permet de récupérer l'argent des bâtiments en fonction du temps passé depuis la dernière fois
+	public void gagneArgentLaunch(long tempsEcouleMilli){ //Permet de récupérer l'argent des bâtiments en fonction du temps passé depuis la dernière fois
 		for(int i=0;i<listBat.size();i++){
-			argent= argent + (int)listBat.get(i).coef*(tempsEcouleMilli/300000);
+			argent= argent + (long)listBat.get(i).niveau*5*(tempsEcouleMilli/300000);
+			System.out.println(argent);
 		}
 	}
 

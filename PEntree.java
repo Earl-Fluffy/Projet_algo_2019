@@ -39,13 +39,13 @@ public class PEntree extends JPanel{
         
         jourTextField = new ghostFormattedTextField(new SimpleDateFormat("dd"),"Date dd"); //3 champs formatés pour la date
 		jourTextField.setBounds(220,275,80,50);
-		jourTextField.setFocusLostBehavior(JFormattedTextField.PERSIST);
+		jourTextField.setFocusLostBehavior(JFormattedTextField.COMMIT_OR_REVERT);
 		moisTextField = new ghostFormattedTextField(new SimpleDateFormat("MM"),"Mois MM");
 		moisTextField.setBounds(320,275,80,50);
-		moisTextField.setFocusLostBehavior(JFormattedTextField.PERSIST);
+		moisTextField.setFocusLostBehavior(JFormattedTextField.COMMIT_OR_REVERT);
 		anneeTextField = new ghostFormattedTextField(new SimpleDateFormat("yyyy"),"Année yyyy");
 		anneeTextField.setBounds(420,275,160,50);
-		anneeTextField.setFocusLostBehavior(JFormattedTextField.PERSIST);
+		anneeTextField.setFocusLostBehavior(JFormattedTextField.COMMIT_OR_REVERT);
 
 		notes = new JTextArea(); //Permet à l'utilisateur d'anoter la dépense
 		notes.setBounds(100,345,600,200);

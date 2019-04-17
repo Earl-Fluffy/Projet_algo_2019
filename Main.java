@@ -1,16 +1,22 @@
 import java.io.*;
+import java.sql.Date;
 import java.util.ArrayList;
 
 public class Main{
 
 
     public static void main(String[] args) {
+    	long tempsActuel= System.currentTimeMillis();
         String texte=""; //Variable qui récupère les infos de tDoc
+		long tempsDepuisDernièreOuverture=0;
 
         try { //Lecture de tDoc et date
-			FileReader fr = new FileReader(TestMain.class.getResource("media/tDoc.txt").getPath());
+			FileReader fr = new FileReader(Main.class.getResource("media/tDoc.txt").getPath());
+			FileReader fr2 = new FileReader(Main.class.getResource("media/date.txt").getPath());
 			BufferedReader br = new BufferedReader(fr);
-			long date=br.read();
+			BufferedReader br2 = new BufferedReader(fr2);
+			long date=br2.read();
+			tempsDepuisDernièreOuverture=tempsActuel-date;
 			String thisLine;
 			int a = 0;
 				while((thisLine=br.readLine()) !=null && thisLine!="")
@@ -36,7 +42,7 @@ public class Main{
 			finalValue[i] = value[i].split(";"); //Découpe de value à chaque ;
 		}
 		Fenetre laFenetre = new Fenetre(finalValue); // Lancement de la fenêtre principale
-
+		laFenetre.pCity.myMap.gagneArgentLaunch(tempsDepuisDernièreOuverture);
 		}
 }
     
