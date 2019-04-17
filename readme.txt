@@ -1,0 +1,1 @@
+Pour lancer le programme, exécuter la classe Main.java qui se trouve dans le dossier Projet_algo_2019.
