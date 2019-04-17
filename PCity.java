@@ -14,6 +14,7 @@ public class PCity extends JPanel implements ActionListener{
 	public JButton close = new JButton ("Fermer");
 	public Map myMap;
 	JPanel commande =new JPanel();
+	PanelImage cityBack=null;
 	
 	PCity(String[][] batACreer){
 		myMap = new Map(batACreer); //L'objet qui répertorie et gère tous les bâtiments
@@ -29,16 +30,11 @@ public class PCity extends JPanel implements ActionListener{
 		commande.add(bStats);
 		this.add(commande, BorderLayout.SOUTH);
 		
-		PanelImage cityBack = new PanelImage("media/CityBackground.jpg"); //Panel où va être affiché la ville
+		cityBack = new PanelImage("media/CityBackground.jpg"); //Panel où va être affiché la ville
 		cityBack.setLayout(null);
 
-		//Images tests (à supprimer)
-		PanelImage pImageTest = new PanelImage("media/money.jpg");
-		pImageTest.setBounds(60+4*58,3+2*58,58,58);
-		PanelImage pImageTest2 = new PanelImage("media/bankn3.png");
-		pImageTest2.setBounds(60+6*58,3+5*58,58,58);
-		cityBack.add(pImageTest);
-		cityBack.add(pImageTest2);
+		this.dessiner();
+
 
 		
 		this.add(cityBack,BorderLayout.CENTER);
@@ -60,6 +56,15 @@ public class PCity extends JPanel implements ActionListener{
 		System.exit(0);
 	}
 
+	public void dessiner (){
+		for(Batiment bat : myMap.listBat){
+			PanelImage pBat = new PanelImage(bat.image);
+			pBat.setBounds(60+bat.x[0]*60,3+bat.y[0]*60,58*bat.x.length,58*bat.y.length);
+			bat.myPanel=pBat;
+			cityBack.add(pBat);
+		}
+	}
+
 	class PanelImage extends JPanel{ //Dédfinit un JPanel avec une image de fond
 		private Image img=null;
 		PanelImage(String pathname){
@@ -69,10 +74,15 @@ public class PCity extends JPanel implements ActionListener{
 				e.printStackTrace();
 			}
 		}
+
+		PanelImage(Image img){
+			this.img=img;
+		}
 		public void paintComponent(Graphics g){
 			g.drawImage(img,0,0,this.getWidth(),this.getHeight(),this);
 		}
 	}
+
 
 }
 
