@@ -30,6 +30,7 @@ public class Interpolationv2{
 		}
 		
 		// Résolution de l'équation V*coeff=Y      V:matrice Vandermonde
+		System.out.println("inversible ?  " + matVandermonde.det());
 		Matrix coeff=matVandermonde.solve(y);
 		coeffs=new double[yy.length];
 		for(int i=0;i<yy.length;i++){

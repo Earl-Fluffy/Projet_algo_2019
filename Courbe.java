@@ -18,6 +18,7 @@ public class Courbe extends JPanel{
 	double[] coorLeastSaquares;
 	double x;
 	double y;
+	double diffX;
 	
 	public Courbe (ArrayList<Depenses> d){   //Constructeur de courbe prend une liste de toutes les dépenses
 		this.setLayout(null);
@@ -29,20 +30,20 @@ public class Courbe extends JPanel{
 		// C'est avec ces valeurs que seront tracer les courbes
 		tmp= new double[dep.size()];
 		mont= new double[dep.size()];
-		x=dep.get(0).getDate();
-		//y=665/2 + dep.get(0).getAmount();
-		y=0;
-		
+		x=dep.get(0).getDate();	
 		for (int i=0; i<dep.size(); i++){
 			tmp[i]=(dep.get(i).getDate()) -x;
-			mont[i]=(dep.get(i).getAmount()+ y);
+			mont[i]=(dep.get(i).getAmount());
 		}
-		
-		
+		diffX=tmp[tmp.length-1];
+		for (int i=0; i<dep.size(); i++){
+			tmp[i]=tmp[i]*((660/2)/diffX);
+		}
 		// Interpolation polynomiale. 
 		//Ici on récupère dans le tableau polynomes tous les coefficients (a0, a1, ..., an) d'un polynomes passant par les points représentant les dépenses.
 		Interpolationv2 inter=new Interpolationv2(tmp,mont);
 		polynomes = inter.getCoeff();
+		
 		
 		// Méthode des moindres carrés
 		// Cela nous permet de récupérer dans le tableau coorLeastSquares les coefficients a et b de la droite ax+b approximant la courbe des dépenses
@@ -56,24 +57,33 @@ public class Courbe extends JPanel{
 		
 		g.setColor(new Color (204,0,5));
 		for(int i=0; i<dep.size();i++){
-			System.out.println(tmp[i] + "   " + (this.getHeight()-mont[i]) + "   " + 10+ "   " + 10);
-			g.fillOval((int)tmp[i]-5, this.getHeight()-(int)mont[i]-5, 10, 10);  
+			g.fillOval((int)(tmp[i]-5), this.getHeight()-(int)mont[i]-5, 10, 10);  
 			//La valeur avec la plus petite date (et donc la première dans la liste, puis dans les tableaux) est placée à l'extrimité gauche du panel. (la même chose est effectuée par la suite)
 		}
 	}
+	
+	
+	
 	
 	// La méthode tracerCourbe relis les points de tracer Point par un trait noir.
 	public void tracerCourbe(Graphics g, Graphics2D g2){
 		g.setColor(Color.black);
 		for(int i=0; i<tmp.length-1;i++){
 			
-			g.drawLine((int)tmp[i], this.getHeight()-(int)mont[i], (int)tmp[i+1], this.getHeight()-(int)mont[i+1]);
+			g.drawLine((int)(tmp[i]), this.getHeight()-(int)mont[i], (int)(tmp[i+1]), this.getHeight()-(int)mont[i+1]);
 		}
 	}
+	
+	
+	
+	
+	
 	
 	// La méthode tracerCourbeLagrange trace une courbe à l'aide des coefficients de polynome.
 	// Elle relie chaque point par un trait, avec un point par pixel calculé.
 	public void tracerCourbeLagrange(Graphics g, Graphics2D g2){
+		
+		
 		double y1=0;
 		double y2=0;
 		g.setColor(new Color(121,121,255));
@@ -88,9 +98,15 @@ public class Courbe extends JPanel{
 		}
 	}
 	
+	
+	
+	
+	
+	
 	// La méthode tracerCourbeLagrange trace une courbe à l'aide des coefficients a et b de la méthode des moindre carrés
 	// La courbe obtenue étant une droite, on utilise drawLine entre les deux extrémités de la fenêtre
 	public void tracerCourbeLeastSquares(Graphics g, Graphics2D g2){
+		
 		double a=coorLeastSaquares[0];
 		int b=(int)coorLeastSaquares[1];
 		g.setColor(new Color (3,165,75));

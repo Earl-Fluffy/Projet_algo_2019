@@ -36,14 +36,14 @@ public class PStat extends JPanel{
 
 }
 class PAxeX extends JPanel{
-	double dateInitiale;
+	int dateInitiale;
+	double diffX;
 	public PAxeX(ArrayList<Depenses> d){
 		this.setPreferredSize(new Dimension(700,40));
 		this.setBackground(new Color(226,241,254));
 		this.setLayout(null);
-		dateInitiale=d.get(0).getDate();
-		System.out.println(dateInitiale);
-		System.out.println("je suis dateInitiale  "+dateInitiale);
+		dateInitiale=(int)d.get(0).date;
+		diffX=d.get(d.size()-1).date-d.get(0).date;
 	}
 
 	public void paintComponent(Graphics g){
@@ -54,10 +54,18 @@ class PAxeX extends JPanel{
 	
 	public void tracerAxeX(Graphics g){
 		g.drawLine(40, this.getHeight()/4, this.getWidth()-80, this.getHeight()/4);
-		for (int i=0; i<((this.getWidth())-80)/50; i++){
-			 g.drawLine(i*50+40,0 , i*50+40 ,this.getHeight()/4 );
-			 g.drawString( Integer.toString(i*50), i*50+40, 3*this.getHeight()/4);
+		for (int i=0; i<((this.getWidth())-80); i+=30){
+			 g.drawLine(i+40,0 , i+40 ,this.getHeight()/4 );
+			 g.drawString( convertion(i*diffX/330 + dateInitiale), i+40, 3*this.getHeight()/4);
 		 }
+	}
+	
+	public String convertion(double x){
+		String s;
+		int m=(int)(x/30.4);
+		int j=(int) (x-30.4*m);
+		s=j+"/"+m;
+		return s;
 	}
 
 
