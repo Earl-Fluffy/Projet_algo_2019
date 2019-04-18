@@ -55,7 +55,7 @@ public class Main{
 		Fenetre laFenetre = new Fenetre(finalValue); // Lancement de la fenêtre principale
 		laFenetre.pCity.myMap.gagneArgentLaunch(tempsDepuisDernièreOuverture);
 		if(!finalValueDepenses[0][0].equals("")) {
-			laFenetre.pCity.myMap.creerDepensesArchives(finalValueDepenses);
+			laFenetre.pCity.myMap.depensesArchives=laFenetre.pCity.myMap.creerDepensesArchives(finalValueDepenses);
 			laFenetre.pCity.myMap.depensesArchivesString = texteDepenses;
 		}
 		}
