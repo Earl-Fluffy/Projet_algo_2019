@@ -52,7 +52,7 @@ public class Fenetre extends JFrame implements ActionListener{
 		} else if (e.getSource()==pCity.bNouvelleEntree){
 			c1.show(cards,listContent[1]);
 		} else if (e.getSource()==pCity.bStats){
-			//pStat=new PStat(pCity.myMap.sommer());
+			pStat=new PStat(pCity.myMap.sommer());
 			
 			
 			//TEST//
@@ -63,7 +63,7 @@ public class Fenetre extends JFrame implements ActionListener{
         listTest.add(testDepense);
         listTest.add(testDepense2);
         listTest.add(testDepense3);
-			pStat=new PStat(listTest);
+			//pStat=new PStat(listTest);
 			//TEST//
 			
 			
