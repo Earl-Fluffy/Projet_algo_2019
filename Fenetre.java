@@ -15,7 +15,7 @@ public class Fenetre extends JFrame implements ActionListener{
     
     public Fenetre(String[][] batACreer){
         this.setSize(800,700); //Propriétés de la fenetre
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
         this.setResizable(false);
 
         pCity= new PCity(batACreer); //Création et ajout des paneaux

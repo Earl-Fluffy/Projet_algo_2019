@@ -14,19 +14,32 @@ public class PStat extends JPanel{
 	public PStat(ArrayList<Depenses> d){
 		this.setLayout(new BorderLayout());
 		this.setBackground(new Color (248,210,211));
-		if(d.size()>1) {
+		if(d.size()>1 && d!=null) {
 			pCourbes = new Courbe(d);
+			
 		} else{
 			pCourbes = new PanelImage("media/noDepense.bmp");
 		}
 		Cartouche= new PanelImage("media/legende.bmp");
 		Cartouche.setPreferredSize(new Dimension(80,700));
 		retour.setBounds(700,0,90,20);
-		axeX = new PAxeX(d);
-		axeX.add(retour);
-		axeY = new PAxeY(d);
-		this.add(axeX,BorderLayout.SOUTH);
-		this.add(axeY,BorderLayout.WEST);
+		
+		if(d.size()>1 ) {
+			axeX = new PAxeX(d);
+		    axeX.add(retour);
+		    axeY = new PAxeY(d);
+		    this.add(axeX,BorderLayout.SOUTH);
+		    this.add(axeY,BorderLayout.WEST);
+		} else {
+			JPanel pasAxeX = new JPanel();
+			pasAxeX.setPreferredSize(new Dimension(700,40));
+			pasAxeX.setBackground(new Color(226,241,254));
+			pasAxeX.setLayout(null);
+			pasAxeX.add(retour);
+			this.add(pasAxeX,BorderLayout.SOUTH);
+		}
+		
+		
 		this.add(Cartouche,BorderLayout.EAST);
 		this.add(pCourbes,BorderLayout.CENTER);
 		this.repaint();
