@@ -12,7 +12,7 @@ public class PLoading extends JPanel {
     public void paintComponent (Graphics g){
         Image img = null;
         try {
-            img= ImageIO.read(new File(TestMain.class.getResource("media/Load.png").getPath()));
+            img= ImageIO.read(new File(Main.class.getResource("media/Load.png").getPath()));
         } catch (IOException e) {
             e.printStackTrace();
         }

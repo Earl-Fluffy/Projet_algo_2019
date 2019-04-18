@@ -27,7 +27,7 @@ public class PEntree extends JPanel{
     public PEntree(){
 
         try {
-            img = ImageIO.read(new File(TestMain.class.getResource("media/entree.bmp").getPath())); //bloc try/catch gère les exceptions
+            img = ImageIO.read(new File(Main.class.getResource("media/entree.bmp").getPath())); //bloc try/catch gère les exceptions
         } catch (IOException e){
             e.printStackTrace();
         }

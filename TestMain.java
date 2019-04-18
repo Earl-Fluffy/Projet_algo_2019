@@ -23,7 +23,7 @@ public class TestMain  {
     {
 
 
-        BufferedWriter writer = new BufferedWriter(new FileWriter(TestMain.class.getResource("media/tDoc.txt").getPath()));
+        BufferedWriter writer = new BufferedWriter(new FileWriter(Main.class.getResource("media/tDoc.txt").getPath()));
         // !!!!!! Ne pas toucher sinon mort potentielle du PC
         writer.write(fileContent);
         writer.close();
@@ -33,7 +33,7 @@ public class TestMain  {
     {
         String thisLine;
         String res="";
-        BufferedReader tBuff = new BufferedReader(new FileReader(TestMain.class.getResource("media/tDoc.txt").getPath()));
+        BufferedReader tBuff = new BufferedReader(new FileReader(Main.class.getResource("media/tDoc.txt").getPath()));
         while ((thisLine = tBuff.readLine()) != null) {
             res +="\n"+ thisLine;
         }

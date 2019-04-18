@@ -57,7 +57,7 @@ public class Map implements ActionListener{
 	
 	 public static void usingBufferedWritter(String fileContent,String pathname) throws IOException { //Fonction qui permet d'écrire fileContent dans tDoc
 
-        BufferedWriter writer = new BufferedWriter(new FileWriter(TestMain.class.getResource(pathname).getPath()));
+        BufferedWriter writer = new BufferedWriter(new FileWriter(Main.class.getResource(pathname).getPath()));
         // !!!!!! Ne pas toucher sinon mort potentielle du PC
         writer.write(fileContent);
         writer.close();
