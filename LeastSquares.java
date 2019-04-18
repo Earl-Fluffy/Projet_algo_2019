@@ -49,8 +49,6 @@ public class LeastSquares {
 
         double a = (N*sumxy - sumx*sumy) / (N*sumx2 - sumx*sumx);
         double b = (sumy - a*sumx) / N;
-        System.out.println("*********************"+a+"********************");
-        System.out.println("*********************"+b+"********************");
         retour[0]=a;
         retour[1]=b;
         return retour;

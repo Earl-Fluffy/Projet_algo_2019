@@ -2,6 +2,12 @@ import java.awt.*;
 import java.awt.geom.Line2D;
 import java.util.*;
 import javax.swing.JPanel;
+/* La classe courbe est une classe objet qui extends JPanel.
+ * C'est une classe qui s'occupe de l'affichage des dépenses sous forme de
+ * 
+ */
+
+
 
 public class Courbe extends JPanel{ 
 
@@ -13,11 +19,14 @@ public class Courbe extends JPanel{
 	double x;
 	double y;
 	
-	public Courbe (ArrayList<Depenses> d){
+	public Courbe (ArrayList<Depenses> d){   //Constructeur de courbe prend une liste de toutes les dépenses
 		this.setLayout(null);
 		this.setBackground(new Color(248,210,211));
 		//this.setPreferredSize(new Dimension(700,700));
 		dep=d;
+		
+		// Les valeurs qui nous intéresse des dépenses, à savoir leur montant et leur date sont placées dans des tableaux de double pour faciliter leur utilisation.
+		// C'est avec ces valeurs que seront tracer les courbes
 		tmp= new double[dep.size()];
 		mont= new double[dep.size()];
 		x=dep.get(0).getDate();
