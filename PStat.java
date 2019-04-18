@@ -44,6 +44,16 @@ class PAxeX extends JPanel{
 
 	public void paintComponent(Graphics g){
 		super.paintComponent(g);
+		tracerAxeX(g);
+		
+	}
+	
+	public void tracerAxeX(Graphics g){
+		g.drawLine(0, this.getHeight()/2, this.getWidth(), this.getHeight()/2);
+		for (int i=0; i<(this.getWidth())/50; i++){
+			 g.drawLine(i*50,0 , i*50 ,this.getHeight()/2 );
+			 //plus texte en dessous mais je ne sais pas comment faire
+		 }
 	}
 
 

@@ -33,9 +33,9 @@ public class Fenetre extends JFrame implements ActionListener{
 
         
         //Test (à retirer)
-        Depenses testDepense = new Depenses(40, "Test","Je fais un test",2019,05,12);
-        Depenses testDepense2 = new Depenses(10,"Test2","Ttttt",2019,05,13);
-        Depenses testDepense3 = new Depenses(1,"Test3","taydgdgf",2019,05,15);
+        Depenses testDepense = new Depenses(400, "Test","Je fais un test",2019,05,12);
+        Depenses testDepense2 = new Depenses(100,"Test2","Ttttt",2019,05,13);
+        Depenses testDepense3 = new Depenses(225,"Test3","taydgdgf",2019,05,15);
         ArrayList<Depenses> listTest = new ArrayList<Depenses>();
         listTest.add(testDepense);
         listTest.add(testDepense2);
@@ -52,7 +52,21 @@ public class Fenetre extends JFrame implements ActionListener{
 		} else if (e.getSource()==pCity.bNouvelleEntree){
 			c1.show(cards,listContent[1]);
 		} else if (e.getSource()==pCity.bStats){
-			pStat=new PStat(pCity.myMap.sommer());
+			//pStat=new PStat(pCity.myMap.sommer());
+			
+			
+			//TEST//
+			Depenses testDepense = new Depenses(40, "Test","Je fais un test",2019,05,12);
+        Depenses testDepense2 = new Depenses(10,"Test2","Ttttt",2019,05,13);
+        Depenses testDepense3 = new Depenses(22,"Test3","taydgdgf",2019,05,15);
+        ArrayList<Depenses> listTest = new ArrayList<Depenses>();
+        listTest.add(testDepense);
+        listTest.add(testDepense2);
+        listTest.add(testDepense3);
+			pStat=new PStat(listTest);
+			//TEST//
+			
+			
 			cards.add(pStat,listContent[4]);
             pStat.retour.addActionListener(this);
 			c1.show(cards,listContent[4]);
