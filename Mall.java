@@ -6,13 +6,13 @@ public class Mall extends Batiment{
 	public void attribuerIm(){
 		switch (niveau){
 			case 0:
-			image = null;
+			image = images.mall1;
 			break;
 			case 1:
-			image = null;
+			image = images.mall2;
 			break;
 			case 2:
-			image =null;
+			image =images.mall3;
 			break;
 		}
 	}

@@ -7,13 +7,13 @@ public class Cinema extends Batiment{
 	public void attribuerIm(){
 		switch (niveau){
 			case 0:
-			image = null;
+			image = images.cinema1;
 			break;
 			case 1:
-			image = null;
+			image = images.cinema2;
 			break;
 			case 2:
-			image =null;
+			image =images.cinema3;
 			break;
 		}
 	}

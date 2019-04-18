@@ -10,6 +10,8 @@ public class Map implements ActionListener{
 	public Timer time; //Permet de récolter l'argent à intervalle donné
 	public long argent;
 	public boolean[][] positions; //Indique les positions occupées et libres. Libre == true
+	public ArrayList<Depenses> depensesArchives; //Liste des dépenses qui n'ont pas été créées au cours de la session actuelle
+	public String depensesArchivesString="";
 	
 	public Map(String[][] batACreer) {
 		listBat= new ArrayList<Batiment>();
@@ -35,19 +37,26 @@ public class Map implements ActionListener{
 		for (Batiment b :listBat){
 			sum.addAll(b.liste);
 		}
+		if(depensesArchives!=null) {
+			sum.addAll(depensesArchives);
+		}
 		Collections.sort(sum);
 		return sum;
 	}
 	
 	public void save (){ //Fonction qui permet de sauvegarder toutes les dépenses à la fermeture du programme
 	 String save="";
+	 String saveD=depensesArchivesString;
 	  for (Batiment b : listBat){
-		  save+= (b.x[0])+ ";" + (b.y[0])+";"+(b.niveau)+ ";" + b.toString() + "\n";
+		  save += (b.x[0])+ ";" + (b.y[0])+";"+(b.niveau)+ ";" + b.toString() + "\n";
 	  }
-	   //System.out.println(save);
+	  for(Depenses d : sommer()){
+			saveD+=(d.date+";"+d.montant+"\n");
+	  }
 	  try {
             usingBufferedWritter(save,"media/tDoc.txt");
             usingBufferedWritter(""+System.currentTimeMillis(),"media/date.txt");
+            usingBufferedWritter(saveD,"media/depenses.txt");
         } catch (FileNotFoundException u) {
             u.printStackTrace();
         } catch (IOException u) {
@@ -124,9 +133,8 @@ public class Map implements ActionListener{
 		}
 	}
 
-	//Utile ? A voir plus tard
 	public void actionPerformed(ActionEvent e){
-		
+		gagneArgent();
 	}
 
 	public Batiment quelTypeBatiment(String[] batimentCode){ //Permet de creer le bon type de bâtiment en fonction de son numéro de catégorie
@@ -174,5 +182,15 @@ public class Map implements ActionListener{
 
 		return reconstruction;
 		
+	}
+
+	public ArrayList<Depenses> creerDepensesArchives (String[][] infoDepensesArchives){
+		ArrayList<Depenses> reconstruction = new ArrayList<>();
+		Depenses newDep = null;
+		for (int i=0;i<infoDepensesArchives.length;i++){
+			newDep = new Depenses(Double.parseDouble(infoDepensesArchives[i][1]),"Archivé","Cette dépense provient d'une archive",Double.parseDouble(infoDepensesArchives[i][0]));
+			reconstruction.add(newDep);
+		}
+		return reconstruction;
 	}
 }

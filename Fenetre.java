@@ -79,7 +79,7 @@ public class Fenetre extends JFrame implements ActionListener{
                 int numCategorie = pEntree.categorie.getSelectedIndex()+1;
                 double montant = Double.parseDouble(pEntree.montant.getText().replace(",", "."));
                 Batiment nouveauBat = pCity.myMap.quelTypeBatiment(new String[]{"0", "0", "0", "" + numCategorie}); //Batiment créé mais sa position n'est pas encore bonne
-                while(nouveauBat.niveau<2) {
+                for(int i=0;i<2;i++) {
                     for (Batiment bat : pCity.myMap.listBat) {
                         if (bat.getClass().equals(nouveauBat.getClass()) && bat.niveau == nouveauBat.niveau) {
                             nouveauBat.fusion(bat, pCity.myMap);
