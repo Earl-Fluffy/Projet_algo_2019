@@ -32,7 +32,7 @@ public class Courbe extends JPanel{
 		x=dep.get(0).getDate();
 		//y=665/2 + dep.get(0).getAmount();
 		y=0;
-		System.out.println("je suis y"+y);
+		
 		for (int i=0; i<dep.size(); i++){
 			tmp[i]=(dep.get(i).getDate()) -x;
 			mont[i]=(dep.get(i).getAmount()+ y);

@@ -5,11 +5,15 @@ public class Depenses implements Comparable <Depenses>{
 	String type;
 	String description;
 	double date;
+	int [] dateNonModif=new int[3];
 	
 	public Depenses (double amount, String categorie, String note, int annee, int jour, int mois){
 		montant = amount;
 		type = categorie;
 		description=note;
+		dateNonModif[0]=annee;
+		dateNonModif[1]=mois;
+		dateNonModif[2]=jour;
 		date= this.convertDate(jour, mois, annee);
 	}
 	
