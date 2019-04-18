@@ -39,8 +39,8 @@ public class Fenetre extends JFrame implements ActionListener{
         listTest.add(testDepense);
         listTest.add(testDepense2);
         listTest.add(testDepense3);
-        pStat=new PStat(listTest);
-        cards.add(pStat,listContent[4]);
+        //pStat=new PStat(listTest);
+        //cards.add(pStat,listContent[4]);
 
         this.setVisible(true);
     }
@@ -51,6 +51,8 @@ public class Fenetre extends JFrame implements ActionListener{
 		} else if (e.getSource()==pCity.bNouvelleEntree){
 			c1.show(cards,listContent[1]);
 		} else if (e.getSource()==pCity.bStats){
+			pStat=new PStat(pCity.myMap.sommer());
+			cards.add(pStat,listContent[4]);
 			c1.show(cards,listContent[4]);
 		} else if (e.getSource()== pEntree.ok){
 		    if(!pEntree.jourTextField.getText().equals("Date dd") && !pEntree.moisTextField.getText().equals("Mois MM") && !pEntree.anneeTextField.getText().equals("Année yyyy") && pEntree.montant.getValue() != null) {

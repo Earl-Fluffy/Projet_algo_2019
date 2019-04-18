@@ -30,8 +30,8 @@ public class Map implements ActionListener{
 		}
 	}
 	
-	public LinkedList<Depenses> sommer (){ //Fonction qui permet de sommer toutes les dépenses enregistrées et de les organiser par date
-		LinkedList <Depenses> sum = new LinkedList <Depenses>();
+	public ArrayList<Depenses> sommer (){ //Fonction qui permet de sommer toutes les dépenses enregistrées et de les organiser par date
+		ArrayList <Depenses> sum = new ArrayList <Depenses>();
 		for (Batiment b :listBat){
 			sum.addAll(b.liste);
 		}
