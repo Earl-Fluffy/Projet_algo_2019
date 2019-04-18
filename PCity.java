@@ -22,7 +22,7 @@ public class PCity extends JPanel implements ActionListener{
 		this.setLayout(g1);
 
 		commande.setLayout(null); //Panel qui contient les deux boutons Nouvelle entrée et Statisiques
-		commande.setBackground(Color.blue);
+		commande.setBackground(new Color(248,210,211));
 		commande.setPreferredSize(new Dimension(800,100));
 		bNouvelleEntree.setBounds(100,15,200,67);
 		bStats.setBounds(500,15,200,67);
@@ -62,24 +62,6 @@ public class PCity extends JPanel implements ActionListener{
 			pBat.setBounds(60+bat.x[0]*60,3+bat.y[0]*60,58*bat.x.length,58*bat.y.length);
 			bat.myPanel=pBat;
 			cityBack.add(pBat);
-		}
-	}
-
-	class PanelImage extends JPanel{ //Dédfinit un JPanel avec une image de fond
-		private Image img=null;
-		PanelImage(String pathname){
-			try{
-				img = ImageIO.read(new File(Main.class.getResource(pathname).getPath()));
-			} catch (IOException e){
-				e.printStackTrace();
-			}
-		}
-
-		PanelImage(Image img){
-			this.img=img;
-		}
-		public void paintComponent(Graphics g){
-			g.drawImage(img,0,0,this.getWidth(),this.getHeight(),this);
 		}
 	}
 
