@@ -5,13 +5,13 @@ public class Mall extends Batiment{
 	}
 	public void attribuerIm(){
 		switch (niveau){
+			case 0:
+			image = null;
+			break;
 			case 1:
 			image = null;
 			break;
 			case 2:
-			image = null;
-			break;
-			case 3:
 			image =null;
 			break;
 		}

@@ -5,13 +5,13 @@ public class Banque extends Batiment{
 	}	
 	public void attribuerIm(){
 		switch (niveau){
-			case 1:
+			case 0:
 			image = images.banque1;
 			break;
-			case 2:
+			case 1:
 			image = images.banque2;
 			break;
-			case 3:
+			case 2:
 			image =images.banque3;
 			break;
 		}
