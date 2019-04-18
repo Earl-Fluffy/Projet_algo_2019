@@ -30,6 +30,7 @@ public class Fenetre extends JFrame implements ActionListener{
         pEntree.ok.addActionListener(this);
         pCity.bNouvelleEntree.addActionListener(this);
         pCity.bStats.addActionListener(this);
+
         
         //Test (à retirer)
         Depenses testDepense = new Depenses(40, "Test","Je fais un test",2019,05,12);
@@ -53,6 +54,7 @@ public class Fenetre extends JFrame implements ActionListener{
 		} else if (e.getSource()==pCity.bStats){
 			pStat=new PStat(pCity.myMap.sommer());
 			cards.add(pStat,listContent[4]);
+            pStat.retour.addActionListener(this);
 			c1.show(cards,listContent[4]);
 		} else if (e.getSource()== pEntree.ok){
 		    if(!pEntree.jourTextField.getText().equals("Date dd") && !pEntree.moisTextField.getText().equals("Mois MM") && !pEntree.anneeTextField.getText().equals("Année yyyy") && pEntree.montant.getValue() != null) {
@@ -82,6 +84,8 @@ public class Fenetre extends JFrame implements ActionListener{
             } else {
 		        JOptionPane.showMessageDialog(null,"Formulaire incomplet !","Alerte",JOptionPane.ERROR_MESSAGE);
             }
+        } else if (e.getSource()==pStat.retour){
+		    c1.show(cards,listContent[0]);
         }
 
     }
