@@ -37,7 +37,9 @@ public class Map implements ActionListener{
 		for (Batiment b :listBat){
 			sum.addAll(b.liste);
 		}
-		sum.addAll(depensesArchives);
+		if(depensesArchives!=null) {
+			sum.addAll(depensesArchives);
+		}
 		Collections.sort(sum);
 		return sum;
 	}

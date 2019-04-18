@@ -6,13 +6,13 @@ public class Gare extends Batiment{
 	public void attribuerIm(){
 		switch (niveau){
 			case 0:
-			image = null;
+			image = images.gare1;
 			break;
 			case 1:
-			image = null;
+			image = images.gare2;
 			break;
 			case 2:
-			image =null;
+			image =images.gare3;
 			break;
 		}
 	}

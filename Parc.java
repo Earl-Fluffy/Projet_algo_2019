@@ -7,13 +7,13 @@ public class Parc extends Batiment{
 	public void attribuerIm(){
 		switch (niveau){
 			case 0:
-			image = null;
+			image = images.parc1;
 			break;
 			case 1:
-			image = null;
+			image = images.parc2;
 			break;
 			case 2:
-			image =null;
+			image =images.parc3;
 			break;
 		}
 	}
