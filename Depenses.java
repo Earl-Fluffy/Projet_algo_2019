@@ -16,6 +16,13 @@ public class Depenses implements Comparable <Depenses>{
 		dateNonModif[2]=jour;
 		date= this.convertDate(jour, mois, annee);
 	}
+
+	public Depenses (double amount, String categorie, String note, double date){
+		montant=amount;
+		type = categorie;
+		description=note;
+		this.date= date;
+	}
 	
 	public double convertDate(int j, int m, int a){
 		double num =0;
